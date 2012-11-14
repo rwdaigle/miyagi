@@ -1,4 +1,22 @@
 Adj::Application.routes.draw do
+
+  root :to => 'homes#index'
+
+  # Monitoring
+  match '/heartbeat', to: 'monitors#heartbeat', :as => :heartbeat
+
+  # # Thought this was an option at one time?
+  # all = [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  # resources :gists, :except => all do
+  #   collection do
+  #     post 'refresh'
+  #     get 'refresh'
+  #     get 'search'
+  #     get 'status'
+  #   end
+  # end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

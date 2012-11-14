@@ -6,6 +6,7 @@ gem 'thin'
 
 gem 'pg'
 gem 'scrolls'
+gem 'lograge'
 gem 'airbrake'
 gem 'newrelic_rpm'
 
