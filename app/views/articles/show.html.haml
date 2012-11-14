@@ -1,0 +1,7 @@
+.article
+
+  %h3= @article.title
+  %span.meta
+    %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
+
+  .body= @article.body

@@ -5,10 +5,13 @@ gem 'rails'
 gem 'thin'
 
 gem 'pg'
+gem 'activerecord-postgres-hstore'
 gem 'scrolls'
 gem 'lograge'
 gem 'airbrake'
 gem 'newrelic_rpm'
+
+gem 'curb'
 
 gem 'haml-rails'
 gem 'jquery-rails'
