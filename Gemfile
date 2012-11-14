@@ -12,6 +12,7 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 
 gem 'curb'
+gem 'redcarpet'
 
 gem 'haml-rails'
 gem 'jquery-rails'

@@ -104,6 +104,7 @@ GEM
     rake (10.0.0)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.2.2)
     rubinius-actor (0.0.2)
       rubinius-core-api
     rubinius-core-api (0.0.1)
@@ -147,6 +148,7 @@ DEPENDENCIES
   pg
   rails
   rake
+  redcarpet
   sass-rails (~> 3.2.3)
   scrolls
   thin

@@ -4,4 +4,4 @@
   %span.meta
     %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
 
-  .body= @article.body
+  .body= m(@article.body)
