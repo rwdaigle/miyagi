@@ -13,23 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20121114212938) do
 
-  create_table "content", :force => true do |t|
-    t.string   "type",           :null => false
+  create_table "articles", :force => true do |t|
     t.integer  "author_id"
     t.string   "title"
     t.string   "image_url"
     t.text     "summary"
     t.text     "body"
     t.datetime "published_at"
-    t.integer  "contributor_id"
-    t.string   "target_url"
-    t.hstore   "details"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  add_index "content", ["published_at"], :name => "index_content_on_published_at"
-  add_index "content", ["type"], :name => "index_content_on_type"
+  add_index "articles", ["published_at"], :name => "index_articles_on_published_at"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at", :null => false
