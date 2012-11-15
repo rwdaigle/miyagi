@@ -1,9 +1,11 @@
 namespace :data do
 
   desc "Populate the database with a staging dataset"
-  task :staging => [:environment, "db:reset", "staging:articles", "staging:events", "staging:projects", "staging:pages", "staging:videos"]
+  task :staging => [:environment, "staging:articles", "staging:events", "staging:projects", "staging:pages", "staging:videos"]
 
   namespace :staging do
+
+    task :reset => ["db:reset", "data:staging"]
 
     task :articles => :environment do
       [
