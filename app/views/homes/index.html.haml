@@ -13,7 +13,7 @@
   %ol.content.linked
     - for link in @linked_content[0..3]
       %li.link
-        %span.title= link_to(link.title, link.target_url)
+        %span.title= link_to(link.title, link.target_url, "link-context" => "main.footer")
         - if link.image_url
           %span.image= image_tag(link.image_url)
         - if link.summary
@@ -27,7 +27,7 @@
   %ol.content.linked
     - for link in @linked_content[4..10]
       %li.link
-        %span.title= link_to(link.title, link.target_url)
+        %span.title= link_to(link.title, link.target_url, "link-context" => "side")
         - if link.image_url
           %span.image= image_tag(link.image_url)
         - if link.summary
