@@ -1,2 +1,0 @@
-class Event < LinkedContent
-end

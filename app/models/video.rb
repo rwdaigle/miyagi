@@ -1,2 +1,0 @@
-class Video < LinkedContent
-end
