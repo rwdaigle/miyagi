@@ -2,6 +2,9 @@ Adj::Application.routes.draw do
 
   root :to => 'homes#index'
 
+  # Link tracking
+  match '/l', to: 'links#follow', :as => :link
+
   # Monitoring
   match '/heartbeat', to: 'monitors#heartbeat', :as => :heartbeat
 
