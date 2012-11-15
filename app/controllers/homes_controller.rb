@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @articles = Article.published.recent.limit(3)
+    @articles = Content.articles.published.recent.limit(3)
+    @linked_content = Content.linked.published.recent.limit(4)
   end
 end

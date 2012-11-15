@@ -1,12 +1,7 @@
 class Article < Content
 
-  validates_presence_of :title, :summary, :body
-
+  validates_presence_of :summary, :body
   before_validation :populate_summary
-
-  belongs_to :author, :class_name => "User"
-
-  scope :recent, order("published_at DESC")
 
   private
 

@@ -11,7 +11,7 @@ class AddContentTypes < ActiveRecord::Migration
 
       # article
       t.integer :author_id
-      t.string :title
+      t.string :title, :image_url
       t.text :summary, :body
       t.timestamp :published_at
 
@@ -21,6 +21,8 @@ class AddContentTypes < ActiveRecord::Migration
 
       # variable info
       t.hstore :details
+      
+      t.timestamps
     end
 
     add_index :content, :type
@@ -29,7 +31,6 @@ class AddContentTypes < ActiveRecord::Migration
 
   def down
     drop_table :content
-    drop_table :users
     execute "DROP EXTENSION hstore"
   end
 end

@@ -6,3 +6,12 @@
       %span.summary= article.summary
       %span.meta
         %span.date= "Published #{article.published_at.to_formatted_s(:short)}"
+
+%h3 Elsewhere
+%ol.content.linked
+  - for link in @linked_content
+    %li.link
+      %span.title= link_to(link.title, link.target_url)
+      %span.image= image_tag(link.image_url)
+      %span.meta
+        %span.date= "Published #{link.published_at.to_formatted_s(:short)}"
