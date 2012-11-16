@@ -3,7 +3,8 @@
   %head
     %title The Application Development Journal
     = stylesheet_link_tag    "application", :media => "all"
+    = airbrake_javascript_notifier
     = javascript_include_tag "application"
-    = csrf_meta_tags
+    = csrf_meta_tags    
 
   %body= yield
