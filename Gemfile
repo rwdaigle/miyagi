@@ -13,6 +13,8 @@ gem 'newrelic_rpm'
 
 gem 'curb'
 gem 'redcarpet'
+# gem 'pygments.rb'
+gem 'pygmentize'
 
 gem 'haml-rails'
 gem 'jquery-rails'

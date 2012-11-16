@@ -79,6 +79,7 @@ GEM
     newrelic_rpm (3.5.1.14)
     pg (0.14.1)
     polyglot (0.3.3)
+    pygmentize (0.0.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -146,6 +147,7 @@ DEPENDENCIES
   lograge
   newrelic_rpm
   pg
+  pygmentize
   rails
   rake
   redcarpet
