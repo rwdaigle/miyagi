@@ -5,3 +5,10 @@
     %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
 
   .body= raw(@article.body_html)
+  .links
+    %h4 Links referenced in article
+    %ul
+      - for link in @article.links
+        %li(class="#{link.type}")
+          = "[#{link.type.downcase}]"
+          = link_to(link.url, link.url)

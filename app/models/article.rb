@@ -26,7 +26,7 @@ class Article < ActiveRecord::Base
   end
 
   def extract_links
-    self.links = LinkExtractor.external(body_html).collect { |url| Link.new(url: url) }
+    self.links = LinkExtractor.external(body_html)
   end
 
 end
