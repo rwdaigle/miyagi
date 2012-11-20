@@ -12,9 +12,9 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 
 gem 'curb'
+gem 'nokogiri'
 gem 'redcarpet'
-# gem 'pygments.rb'
-gem 'pygmentize'
+gem 'pygments.rb'
 
 gem 'haml-rails'
 gem 'jquery-rails'

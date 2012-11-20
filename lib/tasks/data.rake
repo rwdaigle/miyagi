@@ -5,7 +5,7 @@ namespace :data do
 
   namespace :staging do
 
-    task :reset => ["db:reset", "data:staging"]
+    task :reset => ["db:migrate:reset", "data:staging"]
 
     task :articles => :environment do
       [
