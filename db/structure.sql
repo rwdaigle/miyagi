@@ -112,7 +112,9 @@ CREATE TABLE schema_migrations (
 CREATE TABLE users (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    email character varying(255),
+    subscribed boolean DEFAULT false
 );
 
 
@@ -195,6 +197,13 @@ CREATE INDEX index_links_on_article_id ON links USING btree (article_id);
 
 
 --
+-- Name: index_users_on_subscribed; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_subscribed ON users USING btree (subscribed);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -210,3 +219,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121114184839');
 INSERT INTO schema_migrations (version) VALUES ('20121114212938');
 
 INSERT INTO schema_migrations (version) VALUES ('20121120010310');
+
+INSERT INTO schema_migrations (version) VALUES ('20121121161041');

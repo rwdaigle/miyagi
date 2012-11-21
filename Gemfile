@@ -15,9 +15,11 @@ gem 'curb'
 gem 'nokogiri'
 gem 'redcarpet'
 gem 'pygments.rb'
+gem 'valid_email', :require => 'valid_email/email_validator'
 
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'pjax_rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

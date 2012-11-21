@@ -79,6 +79,8 @@ GEM
     newrelic_rpm (3.5.1.14)
     nokogiri (1.5.5)
     pg (0.14.1)
+    pjax_rails (0.3.4)
+      jquery-rails
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pygments.rb (0.3.2)
@@ -137,6 +139,9 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    valid_email (0.0.4)
+      activemodel
+      mail
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -153,6 +158,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   pg
+  pjax_rails
   pygments.rb
   rails
   rake
@@ -161,3 +167,4 @@ DEPENDENCIES
   scrolls
   thin
   uglifier (>= 1.0.3)
+  valid_email

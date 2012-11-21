@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :ensure_user, :set_log_scope
 
+  helper_method :current_user
+
   def logged_in?
     !current_user.nil?
   end
@@ -27,5 +29,9 @@ class ApplicationController < ActionController::Base
 
   def log_out_user
     reset_session
+  end
+
+  def pjax?
+    !request.headers['X-PJAX'].blank?
   end
 end
