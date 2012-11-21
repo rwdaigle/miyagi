@@ -42,7 +42,8 @@ CREATE TABLE articles (
     published_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    body_html text
+    body_html text,
+    slug character varying(255)
 );
 
 
@@ -279,3 +280,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121120010310');
 INSERT INTO schema_migrations (version) VALUES ('20121121161041');
 
 INSERT INTO schema_migrations (version) VALUES ('20121121173656');
+
+INSERT INTO schema_migrations (version) VALUES ('20121121183635');

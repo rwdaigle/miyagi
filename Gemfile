@@ -16,6 +16,7 @@ gem 'nokogiri'
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'valid_email', :require => 'valid_email/email_validator'
+gem 'stringex'
 
 gem 'haml-rails'
 gem 'jquery-rails'

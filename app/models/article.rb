@@ -14,7 +14,12 @@ class Article < ActiveRecord::Base
   scope :recent, order("published_at DESC")
   
   before_validation :populate_summary
+  before_create :generate_slug
   before_save :generate_html, :extract_links
+
+  def to_param
+    "#{id}-#{slug}"
+  end
 
   def to_log
     { article_id: id, article_title: title }
@@ -24,6 +29,10 @@ class Article < ActiveRecord::Base
 
   def populate_summary
     self.summary = body[0..250] if summary.blank? && body
+  end
+
+  def generate_slug
+    self.slug = title.to_url if slug.blank?
   end
 
   def generate_html

@@ -126,6 +126,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    stringex (1.4.0)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -165,6 +166,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 3.2.3)
   scrolls
+  stringex
   thin
   uglifier (>= 1.0.3)
   valid_email
