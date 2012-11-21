@@ -149,7 +149,14 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     email character varying(255),
-    subscribed boolean DEFAULT false
+    subscribed boolean DEFAULT false,
+    first_name character varying(255),
+    last_name character varying(255),
+    twitter_username character varying(255),
+    gh_username character varying(255),
+    site_url character varying(255),
+    profile text,
+    profile_html text
 );
 
 
@@ -282,3 +289,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121121161041');
 INSERT INTO schema_migrations (version) VALUES ('20121121173656');
 
 INSERT INTO schema_migrations (version) VALUES ('20121121183635');
+
+INSERT INTO schema_migrations (version) VALUES ('20121121193041');

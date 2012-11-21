@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id, :body
 
   belongs_to :user
-  before_save :generate_html
+  before_save :generate_body_html
 
   def to_log
     { comment_id: id, comment_body: body[0..100] }
@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
 
   private
 
-  def generate_html
+  def generate_body_html
     self.body_html = MarkdownRenderer.to_html(body)
   end
 

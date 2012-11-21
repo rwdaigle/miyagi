@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 
-  attr_accessible :author_id, :title, :summary, :body, :image_url, :published_at
+  attr_accessible :author, :title, :summary, :body, :image_url, :published_at
 
   validates_presence_of :summary, :body
   validates_presence_of :title
@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   
   before_validation :populate_summary
   before_create :generate_slug
-  before_save :generate_html, :extract_links
+  before_save :generate_body_html, :extract_links
 
   def to_param
     "#{id}-#{slug}"
@@ -35,7 +35,7 @@ class Article < ActiveRecord::Base
     self.slug = title.to_url if slug.blank?
   end
 
-  def generate_html
+  def generate_body_html
     self.body_html = MarkdownRenderer.to_html(body)
   end
 

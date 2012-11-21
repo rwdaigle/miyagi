@@ -4,6 +4,15 @@
   %span.meta
     %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
 
+  .author
+    .name= @article.author.name
+    .links
+      %ul
+        %li.twitter= "@#{@article.author.twitter_username}"
+        %li.github= @article.author.gh_username
+        %li.site= link_to(@article.author.site_url)
+    .profile= raw(@article.author.profile_html)
+
   .body= raw(@article.body_html)
   .links
     %h4 Links referenced in article
