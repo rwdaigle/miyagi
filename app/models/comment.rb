@@ -4,7 +4,8 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :user_id, :body
 
-  belongs_to :user
+  belongs_to :user, :touch => true
+  belongs_to :article, :touch => true
   before_save :generate_body_html
 
   def to_log

@@ -61,5 +61,7 @@ module Adj
 
     # For better hstore/migration support
     config.active_record.schema_format = :sql
+
+    config.lograge.enabled = true
   end
 end

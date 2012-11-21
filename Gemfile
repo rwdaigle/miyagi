@@ -10,6 +10,8 @@ gem 'scrolls'
 gem 'lograge'
 gem 'airbrake'
 gem 'newrelic_rpm'
+gem 'memcachier'
+gem 'dalli'
 
 gem 'curb'
 gem 'nokogiri'
