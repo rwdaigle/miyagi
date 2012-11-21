@@ -16,7 +16,7 @@
   .comments
     %h4 Comments
     .add
-      = form_for([@article, @article.comments.build]) do |f|
+      = form_for([@article, Comment.new]) do |f|
         = f.text_area :body, :rows => 4
         = f.submit "Comment"
     %ul
