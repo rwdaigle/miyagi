@@ -9,8 +9,7 @@ namespace :data do
 
     task :articles => :environment do
       [
-        ["Process Partitioning in Distributed Systems", "https://raw.github.com/gist/2374465/6eb4ed8904b9941c9070c76d420872a3c57f2649/process-partitioning.md"],
-        ["The Worker Pattern", "https://raw.github.com/gist/2362143/635ad0fb9e9a0d1cc5f9559976a65d56d4cbd698/worker-pattern.md"]
+        ["Process Partitioning in Distributed Systems", "https://raw.github.com/gist/4127005/12585f8d79c3c99a60f84701b0b15e621a1b019a/process-partitioning.md"]
       ].each do |content|
         puts "Fetching #{content[0]} content..."
         req = Curl.get(content[1])
