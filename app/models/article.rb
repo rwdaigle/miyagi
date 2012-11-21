@@ -8,12 +8,13 @@ class Article < ActiveRecord::Base
 
   belongs_to :author, :class_name => "User"
   has_many :links, :dependent => :delete_all
+  has_many :comments
 
   scope :published, where("published_at IS NOT NULL")
   scope :recent, order("published_at DESC")
   
   before_validation :populate_summary
-  before_save :render_html, :extract_links
+  before_save :generate_html, :extract_links
 
   private
 
@@ -21,7 +22,7 @@ class Article < ActiveRecord::Base
     self.summary = body[0..250] if summary.blank? && body
   end
 
-  def render_html
+  def generate_html
     self.body_html = MarkdownRenderer.to_html(body)
   end
 

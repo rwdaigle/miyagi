@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   validates :email, email: true, allow_nil: true, allow_blank: false
 
+  has_many :comments
+
   class << self
 
     def create_anonymous_user

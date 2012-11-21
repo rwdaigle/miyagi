@@ -12,3 +12,13 @@
         %li(class="#{link.type}")
           = "[#{link.type.downcase}]"
           = link_to(link.url, link.url)
+
+  .comments
+    %h4 Comments
+    .add
+      = form_for([@article, @article.comments.build]) do |f|
+        = f.text_area :body, :rows => 4
+        = f.submit "Comment"
+    %ul
+      - for comment in @article.comments do
+        %li(id="comment-#{comment.id}")= raw(comment.body_html)

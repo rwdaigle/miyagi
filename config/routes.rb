@@ -11,9 +11,11 @@ Adj::Application.routes.draw do
   # Thought this was an option at one time?
   all = [:index, :show, :new, :create, :edit, :update, :destroy]
 
-  resources :articles, :only => [:show]
+  resources :articles, :only => [:show] do
+    resources :comments, :only => [:create]
+  end
 
-  resources :users, :except => :all do
+  resources :users, :except => all do
     collection do
       post 'subscribe'
     end
