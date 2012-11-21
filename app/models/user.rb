@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :subscribed, :first_name, :last_name, :twitter_username, :gh_username, :site_url, :profile
 
-  validates :email, email: true, allow_nil: true, allow_blank: false
+  validates :email, email: true, allow_nil: true, allow_blank: false, uniqueness: true
+  validates :twitter_username, :gh_username, uniqueness: true, allow_nil: true
 
   has_many :comments
 
