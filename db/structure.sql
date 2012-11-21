@@ -156,7 +156,8 @@ CREATE TABLE users (
     gh_username character varying(255),
     site_url character varying(255),
     profile text,
-    profile_html text
+    profile_html text,
+    uuid character varying(255)
 );
 
 
@@ -268,6 +269,13 @@ CREATE INDEX index_users_on_subscribed ON users USING btree (subscribed);
 
 
 --
+-- Name: index_users_on_uuid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_uuid ON users USING btree (uuid);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -283,6 +291,8 @@ INSERT INTO schema_migrations (version) VALUES ('20121114184839');
 INSERT INTO schema_migrations (version) VALUES ('20121114212938');
 
 INSERT INTO schema_migrations (version) VALUES ('20121120010310');
+
+INSERT INTO schema_migrations (version) VALUES ('20121121155055');
 
 INSERT INTO schema_migrations (version) VALUES ('20121121161041');
 

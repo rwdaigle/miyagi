@@ -1,3 +1,5 @@
+require 'digest'
+
 class User < ActiveRecord::Base
 
   attr_accessible :email, :subscribed, :first_name, :last_name, :twitter_username, :gh_username, :site_url, :profile
@@ -8,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   before_save :generate_profile_html
+  before_validation :generate_uuid
 
   class << self
 
@@ -25,12 +28,19 @@ class User < ActiveRecord::Base
   end
 
   def to_log
-    { user_id: id }
+    { user_id: id, user_uuid: uuid }
   end
 
   private
 
   def generate_profile_html
     self.profile_html = MarkdownRenderer.to_html(profile) if !profile.blank?
+  end
+
+  def generate_uuid
+    if(!uuid)
+      seed = "#{Time.now.to_i.to_s}-#{SecureRandom.uuid}"
+      self.uuid = Digest::SHA1.hexdigest(seed)
+    end
   end
 end
