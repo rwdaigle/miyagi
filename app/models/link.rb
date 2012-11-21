@@ -1,10 +1,6 @@
 class Link < ActiveRecord::Base
 
-  TYPE_GITHUB = "GITHUB"
-  TYPE_PAGE = "PAGE"
-
-  attr_accessor :host
-  attr_accessible :url, :host
+  attr_accessible :url
 
   self.inheritance_column = "_not_used" # I'm using the type column, so tell Rails to bugger off
 
@@ -14,8 +10,7 @@ class Link < ActiveRecord::Base
 
   private
 
-  # TODO: Pull out to more flexible regex-based matching approach
   def determine_type
-    self.type = host.ends_with?("github.com") ? TYPE_GITHUB : TYPE_PAGE
+    self.type = LinkTypeParser.type_of(url)
   end
 end

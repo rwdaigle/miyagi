@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   private
 
   def generate_profile_html
-    self.profile_html = MarkdownRenderer.to_html(profile)
+    self.profile_html = MarkdownRenderer.to_html(profile) if !profile.blank?
   end
 end
