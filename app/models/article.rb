@@ -16,6 +16,10 @@ class Article < ActiveRecord::Base
   before_validation :populate_summary
   before_save :generate_html, :extract_links
 
+  def to_log
+    { article_id: id, article_title: title }
+  end
+  
   private
 
   def populate_summary

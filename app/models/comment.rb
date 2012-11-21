@@ -7,6 +7,10 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   before_save :generate_html
 
+  def to_log
+    { comment_id: id, comment_body: body[0..100] }
+  end
+
   private
 
   def generate_html

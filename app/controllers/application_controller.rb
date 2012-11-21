@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_log_scope
-    Scrolls.global_context({ user_id: current_user.id }) if logged_in?
+    Scrolls.global_context(current_user.to_log.merge(from: request.referer)) if logged_in?
   end
 
   def log_in_user(user)

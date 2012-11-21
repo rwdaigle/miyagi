@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def subscribe!(email)
     update_attributes(email: email, subscribed: true)
   end
+
+  def to_log
+    { user_id: id }
+  end
 end
