@@ -4,7 +4,8 @@ class MonitorsController < ApplicationController
     respond_to do |format|
       format.json do
         render :json => {
-          'db' => test_db
+          'db' => test_db,
+          'cache' => test_cache
         }
       end
       format.html do
@@ -15,7 +16,7 @@ class MonitorsController < ApplicationController
   end
 
   def test_all
-    test_db
+    test_db && test_cache
   end
 
   def test_db
@@ -23,8 +24,8 @@ class MonitorsController < ApplicationController
     true
   end
 
-  # def test_cache
-  #   raise "CacheCheckFail" unless !Rails.cache.exist?('monitors-heartbeat-foobar')
-  #   true
-  # end
+  def test_cache
+    raise "CacheCheckFail" unless !Rails.cache.exist?('_monitor-heartbeat-foobar')
+    true
+  end
 end
