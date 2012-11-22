@@ -18,6 +18,7 @@ Adj::Application.routes.draw do
   resources :users, :except => all do
     collection do
       post 'subscribe'
+      get 'register'
     end
   end
 

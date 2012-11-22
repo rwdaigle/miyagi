@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  before_filter :ensure_user, :set_log_scope
+  before_filter :ensure_registered_user, :set_log_scope
 
   helper_method :current_user
 
@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def ensure_user
-    log_in_user(User.create_anonymous_user) unless logged_in?
+  def ensure_registered_user
+    redirect_to register_users_path(:redirect_to => request.fullpath) if !logged_in?
   end
 
   def set_log_scope
