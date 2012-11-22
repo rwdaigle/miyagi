@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require handlebars.runtime
 //= require_tree ./templates
+//= require jquery.pjax
 //= require_tree .

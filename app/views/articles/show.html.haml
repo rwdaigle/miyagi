@@ -4,4 +4,30 @@
   %span.meta
     %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
 
-  .body= m(@article.body)
+  .author
+    .name= @article.author.name
+    .links
+      %ul
+        %li.twitter= "@#{@article.author.twitter_username}"
+        %li.github= @article.author.gh_username
+        %li.site= link_to(@article.author.site_url)
+    .profile= raw(@article.author.profile_html)
+
+  .body= raw(@article.body_html)
+  .links
+    %h4 Links referenced in article
+    %ul
+      - for link in @article.links
+        %li(class="#{link.type}")
+          = "[#{link.type.downcase}]"
+          = link_to(link.url, link.url)
+
+  .comments
+    %h4 Comments
+    .add
+      = form_for([@article, Comment.new]) do |f|
+        = f.text_area :body, :rows => 4
+        = f.submit "Comment"
+    %ul
+      - for comment in @article.comments do
+        %li(id="comment-#{comment.id}")= raw(comment.body_html)
