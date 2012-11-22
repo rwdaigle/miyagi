@@ -1,0 +1,42 @@
+// Global Styles
+body
+  +transition(all 0.3s)
+  +normal_font
+  font-size: 16px
+  line-height: 24px
+  background-color: $background_color
+  color: $text_color
+  &.night
+    color: $night_text_color
+    background-color: $night_background_color
+
+.main
+  max-width: $content_width
+  margin-left: 100px
+
+#{headings()}
+  +fancy_font
+  color: $foreground_color
+  font-weight: bold
+  body.night &
+    color: $night_foreground_color
+
+h1
+  font-size: 32px
+
+h2
+  font-size: 26px
+
+h3
+  font-size: 18px
+  margin: 20px 0 0 0
+  padding: 0
+
+h4
+  margin: 20px 0 0 0
+  padding: 0
+
+a
+  color: $link_color
+  body.night &
+    color: $night_link_color
