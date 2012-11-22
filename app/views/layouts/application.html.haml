@@ -16,5 +16,5 @@
       .subscribe= render :partial => '/subscribe'
     .main= yield
     
-    = link_to_function "Day and Night", "$('body').toggleClass('night')", id: "night"
+    = link_to_function "<span class='eclipse'> </span>".html_safe, "$('body').toggleClass('night')", id: "night"
     
