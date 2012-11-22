@@ -1,4 +1,6 @@
 class MonitorsController < ApplicationController
+
+  skip_before_filter :ensure_registered_user, :set_log_scope
   
   def heartbeat
     respond_to do |format|
