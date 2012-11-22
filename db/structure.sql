@@ -148,6 +148,7 @@ CREATE TABLE users (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
+    uuid character varying(255),
     email character varying(255),
     subscribed boolean DEFAULT false,
     first_name character varying(255),
@@ -156,8 +157,7 @@ CREATE TABLE users (
     gh_username character varying(255),
     site_url character varying(255),
     profile text,
-    profile_html text,
-    uuid character varying(255)
+    profile_html text
 );
 
 
