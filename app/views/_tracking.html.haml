@@ -1,7 +1,8 @@
+/ = flash[:events].inspect
+
 -if event?(:first_visit)
   :javascript
     $(function() {
-
       mixpanel.identify("#{current_user.uuid}");
       mixpanel.people.identify("#{current_user.uuid}");
       mixpanel.people.set({
@@ -16,8 +17,15 @@
 -if event?(:commented)
   :javascript
     $(function() {
-
       mixpanel.track('Commented', {
-        "Page": "#{request.path}"
+        "Content": "#{request.path}"
+      });
+    });
+
+-if event?(:subscribed)
+  :javascript
+    $(function() {
+      mixpanel.track('Subscribed', {
+        "From page": "#{request.path}"
       });
     });
