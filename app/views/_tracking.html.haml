@@ -1,1 +1,15 @@
-:javascript
+-if first_visit?
+  :javascript
+    $(function() {
+
+      mixpanel.identify("#{current_user.uuid}");
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$created": "#{current_user.created_at}",
+        "First Visit": "#{request.path}"
+      });
+
+      mixpanel.track('First visit', {
+        "Page": "#{request.path}"
+      });
+    });

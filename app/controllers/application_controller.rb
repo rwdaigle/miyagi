@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :ensure_registered_user, :set_log_scope
 
-  helper_method :current_user
+  helper_method :current_user, :first_visit?
 
   def logged_in?
     !current_user.nil?
@@ -13,10 +13,17 @@ class ApplicationController < ActionController::Base
     @current_user ||= session[:user_uuid] ? User.where(:uuid => session[:user_uuid]).first : nil
   end
 
+  def first_visit?
+    @first_visit
+  end
+
   private
 
   def ensure_registered_user
-    redirect_to register_users_path(:redirect_to => request.fullpath) if !logged_in?
+    if(!logged_in?)
+      log_in_user(User.create_anonymous_user)
+      @first_visit = true
+    end
   end
 
   def set_log_scope
