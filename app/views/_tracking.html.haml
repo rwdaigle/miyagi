@@ -1,15 +1,23 @@
--if first_visit?
+-if event?(:first_visit)
   :javascript
     $(function() {
 
       mixpanel.identify("#{current_user.uuid}");
       mixpanel.people.identify("#{current_user.uuid}");
       mixpanel.people.set({
-        "$created": "#{current_user.created_at}",
-        "First Visit": "#{request.path}"
+        "$created": "#{current_user.created_at}"
       });
 
       mixpanel.track('First visit', {
+        "Page": "#{request.path}"
+      });
+    });
+
+-if event?(:commented)
+  :javascript
+    $(function() {
+
+      mixpanel.track('Commented', {
         "Page": "#{request.path}"
       });
     });

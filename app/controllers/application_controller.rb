@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :ensure_registered_user, :set_log_scope
 
-  helper_method :current_user, :first_visit?
+  helper_method :current_user, :first_visit?, :event?
 
   def logged_in?
     !current_user.nil?
@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= session[:user_uuid] ? User.where(:uuid => session[:user_uuid]).first : nil
   end
 
-  def first_visit?
-    @first_visit
+  def event?(event)
+    flash[:events] ? flash[:events].delete(event) : false
   end
 
   private
@@ -22,8 +22,14 @@ class ApplicationController < ActionController::Base
   def ensure_registered_user
     if(!logged_in?)
       log_in_user(User.create_anonymous_user)
-      @first_visit = true
+      register_event(:first_visit)
     end
+  end
+
+  # Use the flash as a cheap transport mechanism for cross-request event tracking
+  def register_event(event)
+    flash[:events] ||= []
+    flash[:events] << event
   end
 
   def set_log_scope
