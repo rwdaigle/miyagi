@@ -1,10 +1,17 @@
 .main
 
-  %h3 Articles
+  %h2 Articles
+  
   %ol.content.articles
     - for article in @articles
       %li.article
-        %span.title= link_to(article.title, article)
-        %span.summary= article.summary
-        %span.meta
-          %span.date= "Published #{article.published_at.to_formatted_s(:short)}"
+
+        %h3= link_to(article.title, article)
+        
+        %span.summary
+          = article.summary
+
+        .meta
+          %span.date 
+            Published
+            = article.published_at.stamp("March 8, 2004")
