@@ -2,11 +2,12 @@
 
 ## Local setup
 
-1. Clone repo
-2. `cp .env.sample .env`. Edit `DATABASE_URL` value.
-4. `rake db:setup`
-3. `gem install foreman`
-4. `foreman start`
-5. open `localhost:5000`
+```bash
+bundle
+cp config/database.yml.example config/database.yml
+rake data:staging:reset
+foreman start
+```
+Open [localhost:5000](http://localhost:5000).
 
 Once in development, the seed data can be refreshed (deleted and reinstated from db:seed) with `rake data:refresh`.

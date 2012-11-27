@@ -1,0 +1,48 @@
+@import "compass/css3"
+@import "zazz"
+
+@import "config"
+@import "global"
+@import "article"
+
+
+// Pygments Overrides
+.highlight
+  background-color: $box_color
+  +border-radius(5px)
+  padding: 5px 10px
+  pre
+    +code_font
+    padding: 0
+    margin: 0
+    font-size: 14px
+
+$moon_size: 30px
+  
+#night
+  +opacity(0.3)
+  +transition(all 0.6s)
+  position: fixed
+  top: 30px
+  right: 30px
+  display: block
+  width: $moon_size
+  height: $moon_size
+  +border-radius($moon_size/2)
+  background: black
+  span.eclipse
+    +transition(all 0.6s)
+    content: " "
+    position: absolute
+    display: block
+    z-index: 10
+    width: $moon_size
+    height: $moon_size
+    +border-radius($moon_size/2)
+    background: $background_color
+    left: 4px
+    top: -3px
+  body.night &
+    background: black  
+    span.eclipse
+      background: white

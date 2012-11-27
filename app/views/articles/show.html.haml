@@ -1,9 +1,13 @@
-.article
+%article
 
-  %h3= @article.title
-  %span.meta
-    %span.date= "Published #{@article.published_at.to_formatted_s(:short)}"
+  %h2= @article.title
+  
+  .meta
+    %span.date
+      = @article.published_at.stamp("March 8, 2004")
 
+  .body= raw(@article.body_html)
+  
   .author
     .name= @article.author.name
     .links
@@ -12,15 +16,16 @@
         %li.github= @article.author.gh_username
         %li.site= link_to(@article.author.site_url)
     .profile= raw(@article.author.profile_html)
-
-  .body= raw(@article.body_html)
+  
   .links
-    %h4 Links referenced in article
+    %h4 Links referenced in this article
     %ul
       - for link in @article.links
         %li(class="#{link.type}")
           = "[#{link.type.downcase}]"
           = link_to(link.url, link.url)
+          
+  %ul#repos
 
   .comments
     %h4 Comments
