@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
   before_filter :set_article, :only => [:create]
   around_filter :set_article_log_scope
+  before_filter :store_user_identity
 
   def create
     @comment = @article.comments.create({ :user_id => current_user.id }.merge(params[:comment]))
@@ -14,6 +15,10 @@ class CommentsController < ApplicationController
 
   def set_article
     @article = Article.published.find(params[:article_id])
+  end
+
+  def store_user_identity
+    current_user.identify!(params[:user_label], params[:user_email])
   end
 
   def set_article_log_scope

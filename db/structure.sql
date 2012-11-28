@@ -148,7 +148,6 @@ CREATE TABLE users (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    uuid character varying(255),
     email character varying(255),
     subscribed boolean DEFAULT false,
     first_name character varying(255),
@@ -157,7 +156,9 @@ CREATE TABLE users (
     gh_username character varying(255),
     site_url character varying(255),
     profile text,
-    profile_html text
+    profile_html text,
+    uuid character varying(255),
+    label character varying(255)
 );
 
 
@@ -301,3 +302,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121121173656');
 INSERT INTO schema_migrations (version) VALUES ('20121121183635');
 
 INSERT INTO schema_migrations (version) VALUES ('20121121193041');
+
+INSERT INTO schema_migrations (version) VALUES ('20121128015356');

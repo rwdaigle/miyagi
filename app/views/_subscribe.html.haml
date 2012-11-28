@@ -2,4 +2,7 @@
   = "You are subscribed as #{current_user.email}"
 - else
   = form_tag(subscribe_users_path) do
-    = text_field_tag :email, "Subscribe for periodic updates", :size => 30
+    - if current_user.email
+      = submit_tag "Subscribe as #{current_user.email}"
+    - else
+      = text_field_tag :email, "Subscribe for periodic updates", :size => 30
