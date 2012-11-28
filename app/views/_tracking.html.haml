@@ -1,12 +1,11 @@
-/ = flash[:events].inspect
-
 -if event?(:first_visit)
   :javascript
     $(function() {
       mixpanel.identify("#{current_user.uuid}");
       mixpanel.people.identify("#{current_user.uuid}");
       mixpanel.people.set({
-        "$created": "#{current_user.created_at}"
+        "$created": "#{current_user.created_at}",
+        "Referrer": document.referrer
       });
 
       mixpanel.track('First visit', {
@@ -17,6 +16,14 @@
 -if event?(:commented)
   :javascript
     $(function() {
+
+      mixpanel.name_tag("#{user_label(current_user)}");
+
+      mixpanel.people.set({
+        "$email": "#{current_user.email}",
+        "$username": "#{user_label(current_user)}"
+      });
+
       mixpanel.track('Commented', {
         "Content": "#{request.path}"
       });
@@ -25,6 +32,13 @@
 -if event?(:subscribed)
   :javascript
     $(function() {
+
+      mixpanel.name_tag("#{user_label(current_user)}");
+      
+      mixpanel.people.set({
+        "$email": "#{current_user.email}"
+      });
+
       mixpanel.track('Subscribed', {
         "From page": "#{request.path}"
       });
