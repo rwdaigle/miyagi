@@ -7,10 +7,13 @@ class User < ActiveRecord::Base
   validates :email, email: true, allow_nil: true, allow_blank: false, uniqueness: true
   validates :twitter_username, :gh_username, uniqueness: true, allow_nil: true
 
-  has_many :comments
+  has_many :articles, :foreign_key => "author_id"
 
   before_save :generate_profile_html
   before_validation :generate_uuid
+
+  scope :authors, joins(:articles).group("users.id").merge(Article.published)
+  scope :random, order("RANDOM()")
 
   class << self
 
