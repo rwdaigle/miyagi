@@ -22,6 +22,7 @@ gem 'stringex'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pjax_rails'
+gem 'psych'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
