@@ -40,3 +40,39 @@
         "Page title": document.title
       });
     });
+
+-if event?(:content_viewed)
+  :javascript
+    $(function() {
+
+      // People
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$last_seen": new Date(),
+        "$last_login": new Date()
+      });
+
+      // Event
+      mixpanel.name_tag("#{user_label(current_user)}");
+      mixpanel.track('Viewed content', {
+        "Content type": "Article",
+        "Content id": #{@article.id},
+        "Content title": "#{@article.title}"
+      });
+    });
+
+-if event?(:homepage_viewed)
+  :javascript
+    $(function() {
+
+      // People
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$last_seen": new Date(),
+        "$last_login": new Date()
+      });
+
+      // Event
+      mixpanel.name_tag("#{user_label(current_user)}");
+      mixpanel.track('Viewed homepage');
+    });
