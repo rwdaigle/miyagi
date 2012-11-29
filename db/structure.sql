@@ -67,40 +67,6 @@ ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
 
 
 --
--- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE comments (
-    id integer NOT NULL,
-    user_id integer,
-    article_id integer,
-    body text,
-    body_html text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE comments_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
-
-
---
 -- Name: links; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -148,7 +114,6 @@ CREATE TABLE users (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    uuid character varying(255),
     email character varying(255),
     subscribed boolean DEFAULT false,
     first_name character varying(255),
@@ -157,7 +122,9 @@ CREATE TABLE users (
     gh_username character varying(255),
     site_url character varying(255),
     profile text,
-    profile_html text
+    profile_html text,
+    uuid character varying(255),
+    label character varying(255)
 );
 
 
@@ -191,13 +158,6 @@ ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY links ALTER COLUMN id SET DEFAULT nextval('links_id_seq'::regclass);
 
 
@@ -214,14 +174,6 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY articles
     ADD CONSTRAINT articles_pkey PRIMARY KEY (id);
-
-
---
--- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY comments
-    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
 
 
 --
@@ -245,13 +197,6 @@ ALTER TABLE ONLY users
 --
 
 CREATE INDEX index_articles_on_published_at ON articles USING btree (published_at);
-
-
---
--- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
 
 
 --
@@ -301,3 +246,7 @@ INSERT INTO schema_migrations (version) VALUES ('20121121173656');
 INSERT INTO schema_migrations (version) VALUES ('20121121183635');
 
 INSERT INTO schema_migrations (version) VALUES ('20121121193041');
+
+INSERT INTO schema_migrations (version) VALUES ('20121128015356');
+
+INSERT INTO schema_migrations (version) VALUES ('20121129011301');

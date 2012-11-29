@@ -2,15 +2,18 @@ require 'digest'
 
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :subscribed, :first_name, :last_name, :twitter_username, :gh_username, :site_url, :profile
+  attr_accessible :email, :subscribed, :first_name, :last_name, :twitter_username, :gh_username, :site_url, :profile, :label
 
   validates :email, email: true, allow_nil: true, allow_blank: false, uniqueness: true
   validates :twitter_username, :gh_username, uniqueness: true, allow_nil: true
 
-  has_many :comments
+  has_many :articles, :foreign_key => "author_id"
 
   before_save :generate_profile_html
   before_validation :generate_uuid
+
+  scope :authors, joins(:articles).group("users.id").merge(Article.published)
+  scope :random, order("RANDOM()")
 
   class << self
 
@@ -20,11 +23,19 @@ class User < ActiveRecord::Base
   end
 
   def subscribe!(email)
-    update_attributes(email: email, subscribed: true)
+    update_attributes(email: email.blank? ? self.email : email, subscribed: true)
+  end
+
+  def identify!(label, email)
+    update_attributes(label: label.blank? ? self.label : label, email: email.blank? ? self.email : email)
   end
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def email_fragment
+    email.to(email.index("@") - 1) if email && email.index("@") > 0
   end
 
   def to_log

@@ -8,7 +8,6 @@ class Article < ActiveRecord::Base
 
   belongs_to :author, :class_name => "User"
   has_many :links, :dependent => :delete_all
-  has_many :comments
 
   scope :published, where("published_at IS NOT NULL")
   scope :recent, order("published_at DESC")

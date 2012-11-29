@@ -1,31 +1,91 @@
-/ = flash[:events].inspect
+:javascript
+  $(function() {
+
+    // Link clicks on home page
+    mixpanel.track_links(".articles a", "Link clicked", { "Page section": "Main" });
+    mixpanel.track_links(".authors a", "Link clicked", { "Page section": "Authors" });
+
+    // Link clicks on article pages
+    mixpanel.track_links("article .body a", "Link clicked", { "Page section": "Article body" });
+    mixpanel.track_links("article .author a", "Link clicked", { "Page section": "Author profile" });
+    mixpanel.track_links("article .links a, article #repos a", "Link clicked", { "Page section": "Extracted links" });
+  });
 
 -if event?(:first_visit)
   :javascript
     $(function() {
-      mixpanel.identify("#{current_user.uuid}");
+
+      // People
       mixpanel.people.identify("#{current_user.uuid}");
       mixpanel.people.set({
-        "$created": "#{current_user.created_at}"
+        "uuid": "#{current_user.uuid}",
+        "$last_seen": new Date(),
+        "$last_login": new Date(),
+        "$created": "#{current_user.created_at}",
+        "Referrer": document.referrer
       });
 
+      // Event
+      mixpanel.identify("#{current_user.uuid}");
       mixpanel.track('First visit', {
-        "Page": "#{request.path}"
-      });
-    });
-
--if event?(:commented)
-  :javascript
-    $(function() {
-      mixpanel.track('Commented', {
-        "Content": "#{request.path}"
+        "Page url": "#{request.path}",
+        "Page title": document.title
       });
     });
 
 -if event?(:subscribed)
   :javascript
     $(function() {
-      mixpanel.track('Subscribed', {
-        "From page": "#{request.path}"
+
+      // People
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$last_seen": new Date(),
+        "$last_login": new Date(),
+        "$email": "#{current_user.email}",
+        "$username": "#{user_label(current_user)}"
       });
+
+      // Event
+      mixpanel.name_tag("#{user_label(current_user)}");
+      mixpanel.track('Subscribed', {
+        "Page url": "#{request.path}",
+        "Page title": document.title
+      });
+    });
+
+-if event?(:content_viewed)
+  :javascript
+    $(function() {
+
+      // People
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$last_seen": new Date(),
+        "$last_login": new Date()
+      });
+
+      // Event
+      mixpanel.name_tag("#{user_label(current_user)}");
+      mixpanel.track('Viewed content', {
+        "Content type": "Article",
+        "Content id": #{@article.id},
+        "Content title": "#{@article.title}"
+      });
+    });
+
+-if event?(:homepage_viewed)
+  :javascript
+    $(function() {
+
+      // People
+      mixpanel.people.identify("#{current_user.uuid}");
+      mixpanel.people.set({
+        "$last_seen": new Date(),
+        "$last_login": new Date()
+      });
+
+      // Event
+      mixpanel.name_tag("#{user_label(current_user)}");
+      mixpanel.track('Viewed homepage');
     });
