@@ -20,28 +20,6 @@
       });
     });
 
--if event?(:commented)
-  :javascript
-    $(function() {
-
-      // People
-      mixpanel.people.identify("#{current_user.uuid}");
-      mixpanel.people.set({
-        "$last_seen": new Date(),
-        "$last_login": new Date(),
-        "$email": "#{current_user.email}",
-        "$username": "#{user_label(current_user)}"
-      });
-
-      // Event
-      mixpanel.name_tag("#{user_label(current_user)}");
-      mixpanel.track('Commented', {
-        "Content type": "Article",
-        "Content id": #{@article.id},
-        "Content title": "#{@article.title}"
-      });
-    });
-
 -if event?(:subscribed)
   :javascript
     $(function() {

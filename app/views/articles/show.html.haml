@@ -26,17 +26,3 @@
           = link_to(link.url, link.url)
           
   %ul#repos
-
-  .comments
-    %h4 Comments
-    .add
-      = form_for([@article, Comment.new]) do |f|
-        = f.text_area :body, :rows => 4
-        = text_field_tag :user_label, user_label(current_user), :size => 30
-        = text_field_tag :user_email, current_user.email || "Email", :size => 30
-        = f.submit "Comment"
-    %ul
-      - for comment in @article.comments do
-        %li(id="comment-#{comment.id}")
-          .commenter= user_label(comment.user)
-          = raw(comment.body_html)
