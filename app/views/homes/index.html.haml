@@ -17,7 +17,14 @@
             Published
             = article.published_at.stamp("March 8, 2004")
 
-  %h2 Authors
+.side
+
+  %h2 About
+  %p
+    Miyagi is a journal of high-quality, general-purpose technical content. Its contributors are thoughtful practitioners of modern application development with a variety of interests.
+  %p= "If this sounds like you, #{link_to("let us know", "https://twitter.com/MiyagiJournal")}.".html_safe
+
+  %h2 Recent authors
   %ol.authors
     - for author in User.authors.random.limit(4)
       %li
