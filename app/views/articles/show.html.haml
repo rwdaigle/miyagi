@@ -7,6 +7,11 @@
       = @article.published_at.stamp("March 8, 2004")
 
   .body= raw(@article.body_html)
+
+  .discuss
+    %h4 Discuss:
+    .hn= link_to("Hacker News", "http://news.ycombinator.com/submit", :class => "hn-share-button")
+    .twitter= link_to("Twitter", "https://twitter.com/share", :class => "twitter-share-button", :"data-via" => "MiyagiJournal")
   
   .author
     .name= @article.author.name
