@@ -4,32 +4,31 @@
     $(function() {
 
       // Link clicks on article pages
-      mixpanel.track_links("article .body a", "Link clicked", { "Page section": "Article body" });
-      mixpanel.track_links("article .author a", "Link clicked", { "Page section": "Author profile" });
-      mixpanel.track_links("article .links a", "Link clicked", { "Page section": "Extracted links" });
+      mixpanel.track_links("article .body a", "Clicked link", { "Page section": "Article body" });
+      mixpanel.track_links("article .author a", "Clicked link", { "Page section": "Author profile" });
+      mixpanel.track_links("article .links a", "Clicked link", { "Page section": "Extracted links" });
     });
 - else
   :javascript
     $(function() {
 
       // Link clicks on home page
-      mixpanel.track_links(".articles a", "Link clicked", { "Page section": "Main" });
-      mixpanel.track_links(".authors a", "Link clicked", { "Page section": "Authors" });
+      mixpanel.track_links(".articles a", "Clicked link", { "Page section": "Main" });
+      mixpanel.track_links(".authors a", "Clicked link", { "Page section": "Authors" });
     });
 
 -if event?(:first_visit)
   :javascript
     $(function() {
 
-      // People
-      mixpanel.people.identify("#{current_user.uuid}");
-      mixpanel.people.set({
-        "uuid": "#{current_user.uuid}",
-        "$last_seen": new Date(),
-        "$last_login": new Date(),
-        "$created": "#{current_user.created_at}",
-        "Referrer": document.referrer
-      });
+      / // People
+      / mixpanel.people.identify("#{current_user.uuid}");
+      / mixpanel.people.set({
+      /   "uuid": "#{current_user.uuid}",
+      /   "$last_login": new Date(),
+      /   "$created": "#{current_user.created_at}",
+      /   "Referrer": document.referrer
+      / });
 
       // Event
       mixpanel.identify("#{current_user.uuid}");
@@ -46,7 +45,6 @@
       // People
       mixpanel.people.identify("#{current_user.uuid}");
       mixpanel.people.set({
-        "$last_seen": new Date(),
         "$last_login": new Date(),
         "$email": "#{current_user.email}",
         "$username": "#{user_label(current_user)}"
@@ -64,12 +62,11 @@
   :javascript
     $(function() {
 
-      // People
-      mixpanel.people.identify("#{current_user.uuid}");
-      mixpanel.people.set({
-        "$last_seen": new Date(),
-        "$last_login": new Date()
-      });
+      / // People
+      / mixpanel.people.identify("#{current_user.uuid}");
+      / mixpanel.people.set({
+      /   "$last_login": new Date()
+      / });
 
       // Event
       mixpanel.name_tag("#{user_label(current_user)}");
@@ -84,12 +81,12 @@
   :javascript
     $(function() {
 
-      // People
-      mixpanel.people.identify("#{current_user.uuid}");
-      mixpanel.people.set({
-        "$last_seen": new Date(),
-        "$last_login": new Date()
-      });
+      / // People
+      / mixpanel.people.identify("#{current_user.uuid}");
+      / mixpanel.people.set({
+      /   "$last_seen": new Date(),
+      /   "$last_login": new Date()
+      / });
 
       // Event
       mixpanel.name_tag("#{user_label(current_user)}");
