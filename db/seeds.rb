@@ -10,6 +10,9 @@
 authors = [ {
   first_name: "Ryan", last_name: "Smith", twitter_username: "ryandotsmith", gh_username: "ryandotsmith",
   site_url: "http://ryandotsmith.heroku.com/", profile: "Ryan Smith builds distributed systems at [Heroku](http://heroku.com). His writing is motivated by many successes and failures experienced with production systems at Heroku."
+}, {
+  first_name: "Pedro", last_name: "Belo", twitter_username: "ped", gh_username: "pedro",
+  site_url: "http://pedro.herokuapp.com/", profile: "Pedro is a proponent of shipping, improving and avoiding code. Current obsessions include: APIs, distributed architectures, zero downtime deploys and [caipirinhas](http://en.wikipedia.org/wiki/Caipirinha)."
 }]
 
 authors.each do |author_params|
@@ -19,6 +22,7 @@ authors.each do |author_params|
 end
 
 articles = [
+  ["ped", "Assertions by Design", "https://raw.github.com/gist/bf2e720a2d045cd70725/assertions.md"],
   ["ryandotsmith", "Process Partitioning in Distributed Systems", "https://raw.github.com/gist/4127005/process-partitioning.md"]
 ]
 
