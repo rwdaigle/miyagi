@@ -1,15 +1,21 @@
-:javascript
-  $(function() {
 
-    // Link clicks on home page
-    mixpanel.track_links(".articles a", "Link clicked", { "Page section": "Main" });
-    mixpanel.track_links(".authors a", "Link clicked", { "Page section": "Authors" });
+- if @article
+  :javascript
+    $(function() {
 
-    // Link clicks on article pages
-    mixpanel.track_links("article .body a", "Link clicked", { "Page section": "Article body" });
-    mixpanel.track_links("article .author a", "Link clicked", { "Page section": "Author profile" });
-    mixpanel.track_links("article .links a, article #repos a", "Link clicked", { "Page section": "Extracted links" });
-  });
+      // Link clicks on article pages
+      mixpanel.track_links("article .body a", "Link clicked", { "Page section": "Article body" });
+      mixpanel.track_links("article .author a", "Link clicked", { "Page section": "Author profile" });
+      mixpanel.track_links("article .links a", "Link clicked", { "Page section": "Extracted links" });
+    });
+- else
+  :javascript
+    $(function() {
+
+      // Link clicks on home page
+      mixpanel.track_links(".articles a", "Link clicked", { "Page section": "Main" });
+      mixpanel.track_links(".authors a", "Link clicked", { "Page section": "Authors" });
+    });
 
 -if event?(:first_visit)
   :javascript
