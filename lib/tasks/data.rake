@@ -5,7 +5,7 @@ namespace :data do
 
   desc "Remove all data from the database"
   task :clear => :environment do
-    [User, Article, Comment, Link].each do |model|
+    [User, Article, Link].each do |model|
       puts "Removing all #{model.to_s.downcase.pluralize}"
       model.delete_all
     end

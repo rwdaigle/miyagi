@@ -9,7 +9,7 @@
 
 authors = [ {
   first_name: "Ryan", last_name: "Smith", twitter_username: "ryandotsmith", gh_username: "ryandotsmith",
-  site_url: "http://ryandotsmith.heroku.com/", profile: "Ryan Smith builds distributed systems at [Heroku](http://heroku.com). His writing is motivated by many success and failures experienced with production systems at Heroku."
+  site_url: "http://ryandotsmith.heroku.com/", profile: "Ryan Smith builds distributed systems at [Heroku](http://heroku.com). His writing is motivated by many successes and failures experienced with production systems at Heroku."
 }]
 
 authors.each do |author_params|
@@ -19,7 +19,7 @@ authors.each do |author_params|
 end
 
 articles = [
-  ["ryandotsmith", "Process Partitioning in Distributed Systems", "https://raw.github.com/gist/4127005/12585f8d79c3c99a60f84701b0b15e621a1b019a/process-partitioning.md"]
+  ["ryandotsmith", "Process Partitioning in Distributed Systems", "https://raw.github.com/gist/4127005/process-partitioning.md"]
 ]
 
 articles.each do |content|
