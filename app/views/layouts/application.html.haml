@@ -15,6 +15,7 @@
   %body
     .header
       .subscribe= render :partial => '/subscribe'
+      .twitter= link_to("@MiyagiJournal", "https://twitter.com/MiyagiJournal")
     .main= yield
     
     = link_to_function "<span class='eclipse'> </span>".html_safe, "$('body').toggleClass('night')", id: "night"
