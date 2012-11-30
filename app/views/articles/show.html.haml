@@ -23,7 +23,10 @@
         %li.github= @article.author.gh_username
         %li.site= link_to(@article.author.site_url)
     .profile= raw(@article.author.profile_html)
+
+  .license= render :partial => 'license'
   
+.side
   .links
     %h4 Links referenced in this article
     %ul
