@@ -1,23 +1,17 @@
-.main
+%ol.content.articles
+  - for article in @articles
+    %li.article
 
-  %h2 Articles  
-  %ol.content.articles
-    - for article in @articles
-      %li.article
+      %h2= link_to(article.title, article)
+      %p.date
+        = article.published_at.stamp("March 8, 2004")
+      %p.summary
+        = article.summary
 
-        %h3= link_to(article.title, article)
-        
-        %span.summary
-          = article.summary
 
-        .meta
-          %span.date 
-            Published
-            = article.published_at.stamp("March 8, 2004")
-
-  %h2 Authors
-  %ol.authors
-    - for author in User.authors.random.limit(4)
-      %li
-        .name= author.name
-        .profile= raw(author.profile_html)
+//%h2 Authors
+%ol.authors
+  - for author in []#User.authors.random.limit(4)
+    %li
+      .name= author.name
+      .profile= raw(author.profile_html)

@@ -17,6 +17,10 @@ module Adj
     
     # Recommended for https://github.com/leshill/handlebars_assets
     config.assets.initialize_on_precompile = false
+    
+    # http://stackoverflow.com/a/10907276/95670
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)

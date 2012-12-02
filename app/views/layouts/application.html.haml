@@ -14,8 +14,17 @@
 
   %body
     .header
-      .subscribe= render :partial => '/subscribe'
-    .main= yield
+    
+      #logo
+        .icon= icon_for :fukuoka
+        .label
+          %h1= t 'app.name'
+          %h2= t 'app.tagline'
+
+      = render :partial => '/subscribe'
+      
+    .main
+      = yield
     
     = link_to_function "<span class='eclipse'> </span>".html_safe, "$('body').toggleClass('night')", id: "night"
     

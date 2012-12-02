@@ -1,12 +1,13 @@
+// Vendor
 @import "compass/css3"
 @import "zazz"
 
 @import "config"
+@import "fonts"
 @import "global"
 @import "article"
 
-
-// Pygments Overrides
+// Pygments Overridess
 .highlight
   background-color: $box_color
   +border-radius(5px)
@@ -16,14 +17,62 @@
     padding: 0
     margin: 0
     font-size: 14px
+    
+#logo
+  +no_float
+  padding: 40px 0 100px 60px
+  .icon
+    +float_left
+    +box-sizing(border-box)
+    max-width: 30%
+    +iconic(150px)
+    color: $fun_color
+    text-shadow: 3px 3px 0px rgba($fun_color, 0.2)
 
-$moon_size: 30px
-  
+  .label
+    +float_left
+    +box-sizing(border-box)
+    max-width: 540px 
+    padding-left: 30px
+    
+    h1
+      font-size: 48px
+      line-height: 48px
+      margin: 0
+      padding: 30px 0 10px 0
+      
+    h2
+      font-weight: normal
+      +opacity(0.5)
+      //color: rgba($text_color, 0.5)
+      font-size: 24px
+      line-height: 26px
+      margin: 0
+      padding: 0
+
+    
+.subscribe
+  position: fixed
+  top: 20px
+  right: 20px
+  input
+    +normal_font
+    padding: 5px
+    font-size: 13px
+    //+border-radius(2px)
+    outline: $fun_color
+    max-width: 200px
+    
+  p
+    font-size: 12px
+    margin: 0
+    padding: 0
+    
 #night
   +opacity(0.3)
   +transition(all 0.6s)
   position: fixed
-  top: 30px
+  bottom: 30px
   right: 30px
   display: block
   width: $moon_size
