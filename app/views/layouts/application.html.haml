@@ -17,17 +17,22 @@
   %body
     .header
     
-      #logo
+      %a#logo{href: root_path}
         .icon= icon_for :fukuoka
         .label
           %h1= t 'app.name'
           %h2= t 'app.tagline'
 
       = render :partial => '/subscribe'
-      .twitter= link_to("@MiyagiJournal", "https://twitter.com/MiyagiJournal")
+      
+      //.twitter= link_to("@MiyagiJournal", "https://twitter.com/MiyagiJournal")
       
     .main
       = yield
     
-    = link_to_function "<span class='eclipse'> </span>".html_safe, "$('body').toggleClass('night')", id: "night"
+
+    #yin_yang
+      .side.day= icon_for :sun
+      .side.night= icon_for :moon
+
     

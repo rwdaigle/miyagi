@@ -9,7 +9,7 @@
 
 // Pygments Overridess
 .highlight
-  background-color: $box_color
+  background-color: rgba(223, 218, 199, 0.5) !important
   +border-radius(5px)
   padding: 5px 10px
   pre
@@ -67,31 +67,34 @@
     font-size: 12px
     margin: 0
     padding: 0
+
+$yin_yang_size: 32px
+$yin_yang_duration: 0.5s
     
-#night
-  +opacity(0.3)
-  +transition(all 0.6s)
+#yin_yang
   position: fixed
-  bottom: 30px
-  right: 30px
-  display: block
-  width: $moon_size
-  height: $moon_size
-  +border-radius($moon_size/2)
-  background: black
-  span.eclipse
-    +transition(all 0.6s)
-    content: " "
+  right: 32px
+  bottom: 0px
+  cursor: pointer
+  height: $yin_yang_size*2
+  width: $yin_yang_size
+  overflow: hidden
+  .side
     position: absolute
-    display: block
-    z-index: 10
-    width: $moon_size
-    height: $moon_size
-    +border-radius($moon_size/2)
-    background: $background_color
-    left: 4px
-    top: -3px
-  body.night &
-    background: black  
-    span.eclipse
-      background: white
+  .day
+    +transition(all $yin_yang_duration $yin_yang_duration ease-out)
+    +iconic(32px)
+    color: rgba($foreground_color, 0.3)
+    top: 0
+    body.night &
+      +transition(all $yin_yang_duration 0 ease-in)
+      top: $yin_yang_size*2
+  .night
+    +transition(all $yin_yang_duration 0 ease-in)
+    +iconic(26px)
+    padding: 5px
+    color: rgba($background_color, 0.3)
+    top: $yin_yang_size*2
+    body.night &
+      +transition(all $yin_yang_duration $yin_yang_duration ease-out)
+      top: 0

@@ -1,6 +1,7 @@
 - content_for(:page_title, "The Technique of Developing Modern Applications")
 
 %ol.content.articles
+
   - for article in @articles
     %li.article
       %h2= link_to(article.title, article)
@@ -9,10 +10,10 @@
       %p.summary
         = article.summary
 
-
 .side
 
   %h2 About
+  
   %p
     Miyagi is a journal of high-quality, general-purpose technical content. 
     Its contributors are thoughtful practitioners of modern application 
