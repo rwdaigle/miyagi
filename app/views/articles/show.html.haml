@@ -1,12 +1,19 @@
+- content_for(:page_title, @article.title)
+
 %article
 
-  %h2= @article.title
+  %h1= @article.title
   
   .meta
     %span.date
       = @article.published_at.stamp("March 8, 2004")
 
   .body= raw(@article.body_html)
+
+  .discuss
+    %h4 Discuss:
+    .hn= link_to("Hacker News", "http://news.ycombinator.com/submit", :class => "hn-share-button")
+    .twitter= link_to("Twitter", "https://twitter.com/share", :class => "twitter-share-button", :"data-via" => "MiyagiJournal")
   
   .author
     .name= @article.author.name
@@ -16,7 +23,10 @@
         %li.github= @article.author.gh_username
         %li.site= link_to(@article.author.site_url)
     .profile= raw(@article.author.profile_html)
+
+  .license= render :partial => 'license'
   
+.side
   .links
     %h4 Links referenced in this article
     %ul
