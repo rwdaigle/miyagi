@@ -20,6 +20,7 @@
 - https://medium.com/
 - https://medium.com/about/df8eac9f4a5e
 - http://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/article_large/public/2012/10/03/2011/07/26/137701-mount-fuji-the-symbol-of-japan.jpg
+- http://craigmod.com/journal/subcompact_publishing/
 
 ## Fonts
 
