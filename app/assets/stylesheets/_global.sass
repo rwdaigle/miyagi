@@ -5,6 +5,8 @@ body
   +normal_font_size
   background-color: $background_color
   color: $text_color
+  margin: 0
+  padding: 0
   &.night
     color: $night_text_color
     background-color: $night_background_color
@@ -60,43 +62,82 @@ p
     font-size: 14px
 
 header
-  +flexi
 
-a#logo
-  text-decoration: none
-  display: block  
-  padding: 50px 0 80px 0
+  .container
+    +flexi
   
-  .icon
-    +transition(all 0.5s)
-    +iconic(150px)
-    +flexi
-    text-align: center
-    color: $fun_color
-    text-shadow: 3px 3px 0px rgba($fun_color, 0.2)
-    body.night &
-      color: $night_fun_color
-      text-shadow: 3px 3px 0px rgba($night_fun_color, 0.1)
-
-  .label
-    +flexi
+  a.logo
+    text-decoration: none
+    display: block  
+    padding: 50px 0 80px 0
+  
+    .icon
+      +transition(all 0.5s)
+      +iconic(150px)
+      text-align: center
+      color: $fun_color
+      // text-shadow: 3px 3px 0px rgba($fun_color, 0.2)
+      body.night &
+        color: $night_fun_color
+        // text-shadow: 3px 3px 0px rgba($night_fun_color, 0.1)
+        
+    .label
     
-    h1 
-      text-align: center
-      font-size: 48px
-      line-height: 48px
-      margin: 0
-      padding: 30px 0 10px 0
+      h1 
+        text-align: center
+        font-size: 48px
+        line-height: 48px
+        margin: 0
+        padding: 30px 0 10px 0
       
-    h2
-      text-align: center
-      font-weight: normal
-      +opacity(0.5)
-      font-size: 24px
-      line-height: 26px
-      margin: 0
-      padding: 0
+      h2
+        text-align: center
+        font-weight: normal
+        +opacity(0.5)
+        font-size: 24px
+        line-height: 26px
+        margin: 0
+        padding: 0
 
+  &.compact    
+    min-height: 60px
+    padding: 0
+    background-color: $fun_color
+    body.night &
+      background-color: $night_fun_color
+    .container
+      margin: 0
+      max-width: none
+      min-width: auto
+    a.logo
+      padding: 0
+      max-width: none
+      min-width: auto
+      text-align: center
+      .icon
+        display: inline-block
+        +iconic(32px)
+        margin: 8px 10px 0 10px
+        color: mix($fun_color, $foreground_color, 80%)
+        display: none
+      .label
+        display: inline-block
+        padding: 10px 0
+        h1
+          margin: 0
+          padding: 0 10px
+          display: inline-block
+          font-size: 18px
+          color: rgba($background_color, 1)
+        h2
+          margin: 0
+          display: inline-block
+          +normal_font_size
+          +mobile-only
+            padding-bottom: 10px
+          
+          color: rgba($background_color, .6)
+          +opacity(1)
 
 footer
   +flexi
@@ -134,6 +175,7 @@ $yy_apogee: 50px
       padding-bottom: $yy_apogee
 
 .subscribe
+  display: none
   position: fixed
   top: 20px
   right: 20px

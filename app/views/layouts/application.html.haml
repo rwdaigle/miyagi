@@ -14,10 +14,10 @@
     = render :partial => '/discuss'
 
   %body{class: ("night" if cookies[:night] == "true")}
-    %header
-    
-      - if request.path == root_path
-        %a#logo{href: root_path}
+
+    %header{class: ("compact" unless request.path == root_path)}
+      .container
+        %a.logo{href: root_path}
           .icon= icon_for japan_prefectures.sample
           .label
             %h1= t 'app.name'
