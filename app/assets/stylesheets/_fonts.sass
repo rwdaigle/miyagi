@@ -1,0 +1,29 @@
+@font-face
+  font-family: "archer"
+  src: url('archer-bold-pro.woff')
+  font-weight: bold
+ 
+@font-face
+  font-family: miyagi
+  src: url("/assets/miyagi.woff") format("woff")
+  font-weight: normal
+  font-style: normal
+    
+=fancy_font
+  font-family: 'archer', serif
+
+=normal_font
+  font-family: 'Open Sans', sans-serif
+
+=code_font
+  font-family: Monaco, sans-serif
+
+
+=iconic($size:32px)
+  font:
+    family: miyagi
+    weight: normal
+    style: normal
+    size: $size
+  line-height: $size
+  font-weight: normal

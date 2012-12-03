@@ -1,14 +1,15 @@
+// Vendor
 @import "compass/css3"
 @import "zazz"
 
 @import "config"
+@import "fonts"
 @import "global"
 @import "article"
 
-
-// Pygments Overrides
+// Pygments Overridess
 .highlight
-  background-color: $box_color
+  background-color: rgba(223, 218, 199, 0.5) !important
   +border-radius(5px)
   padding: 5px 10px
   pre
@@ -16,33 +17,84 @@
     padding: 0
     margin: 0
     font-size: 14px
+    
+#logo
+  +no_float
+  padding: 40px 0 100px 60px
+  .icon
+    +float_left
+    +box-sizing(border-box)
+    max-width: 30%
+    +iconic(150px)
+    color: $fun_color
+    text-shadow: 3px 3px 0px rgba($fun_color, 0.2)
 
-$moon_size: 30px
-  
-#night
-  +opacity(0.3)
-  +transition(all 0.6s)
+  .label
+    +float_left
+    +box-sizing(border-box)
+    max-width: 540px 
+    padding-left: 30px
+    
+    h1
+      font-size: 48px
+      line-height: 48px
+      margin: 0
+      padding: 30px 0 10px 0
+      
+    h2
+      font-weight: normal
+      +opacity(0.5)
+      //color: rgba($text_color, 0.5)
+      font-size: 24px
+      line-height: 26px
+      margin: 0
+      padding: 0
+
+    
+.subscribe
   position: fixed
-  top: 30px
-  right: 30px
-  display: block
-  width: $moon_size
-  height: $moon_size
-  +border-radius($moon_size/2)
-  background: black
-  span.eclipse
-    +transition(all 0.6s)
-    content: " "
+  top: 20px
+  right: 20px
+  input
+    +normal_font
+    padding: 5px
+    font-size: 13px
+    //+border-radius(2px)
+    outline: $fun_color
+    max-width: 200px
+    
+  p
+    font-size: 12px
+    margin: 0
+    padding: 0
+
+$yin_yang_size: 32px
+$yin_yang_duration: 0.5s
+    
+#yin_yang
+  position: fixed
+  right: 32px
+  bottom: 0px
+  cursor: pointer
+  height: $yin_yang_size*2
+  width: $yin_yang_size
+  overflow: hidden
+  .side
     position: absolute
-    display: block
-    z-index: 10
-    width: $moon_size
-    height: $moon_size
-    +border-radius($moon_size/2)
-    background: $background_color
-    left: 4px
-    top: -3px
-  body.night &
-    background: black  
-    span.eclipse
-      background: white
+  .day
+    +transition(all $yin_yang_duration $yin_yang_duration ease-out)
+    +iconic(32px)
+    color: rgba($foreground_color, 0.3)
+    top: 0
+    body.night &
+      +transition(all $yin_yang_duration 0 ease-in)
+      top: $yin_yang_size*2
+  .night
+    +transition(all $yin_yang_duration 0 ease-in)
+    +iconic(26px)
+    padding: 5px
+    color: rgba($background_color, 0.3)
+    top: $yin_yang_size*2
+    body.night &
+      +transition(all $yin_yang_duration $yin_yang_duration ease-out)
+      top: 0
