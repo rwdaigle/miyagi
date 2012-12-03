@@ -1,6 +1,6 @@
 // Global Styles
 body
-  +transition(all 0.3s)
+  +transition(all 0.5s)
   +normal_font
   font-size: 16px
   line-height: 24px
@@ -15,6 +15,7 @@ body
   margin-left: 245px
 
 #{headings()}
+  +transition(all 0.5s)
   +fancy_font
   color: $foreground_color
   font-weight: bold
@@ -104,33 +105,26 @@ a
     margin: 0
     padding: 0
 
-$yin_yang_size: 32px
-$yin_yang_duration: 0.5s
-    
+$yy_size: 32px
+$yy_apogee: 50px
+
 #yin_yang
+  +transition(all 1.0s ease-in-out)
   position: fixed
-  right: 32px
-  bottom: 0px
+  right: 100px
+  bottom: -($yy_size + $yy_apogee)
   cursor: pointer
-  height: $yin_yang_size*2
-  width: $yin_yang_size
-  overflow: hidden
-  .side
-    position: absolute
+  width: $yy_size
+  body.night &
+    +rotate(180deg)
   .day
-    +transition(all $yin_yang_duration $yin_yang_duration ease-out)
     +iconic(32px)
     color: rgba($foreground_color, 0.3)
-    top: 0
-    body.night &
-      +transition(all $yin_yang_duration 0 ease-in)
-      top: $yin_yang_size*2
   .night
-    +transition(all $yin_yang_duration 0 ease-in)
+    +rotate(180deg)
     +iconic(26px)
     padding: 5px
     color: rgba($background_color, 0.3)
-    top: $yin_yang_size*2
-    body.night &
-      +transition(all $yin_yang_duration $yin_yang_duration ease-out)
-      top: 0
+  .side
+    padding-bottom: $yy_apogee
+
