@@ -18,7 +18,11 @@ module ApplicationHelper
   end
 
   def icon_words
-    %w(fukuoka github moon sun twitter)
+    %w(fukuoka github kochi miyagi moon osaka sun twitter)
+  end
+  
+  def japan_prefectures
+    %w(fukuoka kochi miyagi osaka)
   end
   
   def markdown(text, options)

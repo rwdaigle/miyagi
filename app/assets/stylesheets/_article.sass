@@ -4,12 +4,8 @@ ol.articles
     h2
       margin: 0
       padding: 0
-      a
-        text-decoration: none
-        
 
 article
-
   padding: 40px 0
 
   p
@@ -25,3 +21,16 @@ article
     padding: 10px
     background-color: $box_color
     +border-radius(5px)
+
+  ul.link_summary
+    +reset_list
+    > li
+      padding: 8px 0
+      a
+        text-decoration: none
+        line-height: 20px
+        &.iconic
+          &:before
+            +iconic(20px)
+            content: attr(title)
+            margin-right: 5px

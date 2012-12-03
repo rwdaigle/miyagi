@@ -17,6 +17,8 @@ body
   +fancy_font
   color: $heading_color
   font-weight: bold
+  a
+    text-decoration: none
   body.night &
     color: $night_heading_color
 
@@ -122,7 +124,7 @@ $yy_apogee: 50px
       +rotate(180deg)
     .sun
       +iconic(32px)
-      color: rgba($foreground_color, 0.3)
+      color: $sun_color
     .moon
       +rotate(180deg)
       +iconic(26px)
@@ -147,16 +149,3 @@ $yy_apogee: 50px
     +small_font_size
     margin: 0
     padding: 0
-
-ul.link_summary
-  +reset_list
-  > li
-    padding: 8px 0
-    a
-      text-decoration: none
-      line-height: 20px
-      &.iconic
-        &:before
-          +iconic(20px)
-          content: attr(title)
-          margin-right: 5px
