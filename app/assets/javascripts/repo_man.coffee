@@ -28,4 +28,4 @@ $ ->
   
   window.RepoMan = RepoMan
   
-  RepoMan.go()
+  # RepoMan.go()
