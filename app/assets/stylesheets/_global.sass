@@ -151,3 +151,15 @@ $yy_apogee: 50px
     margin: 0
     padding: 0
 
+ul.link_summary
+  +reset_list
+  > li
+    padding: 8px 0
+    a
+      text-decoration: none
+      line-height: 20px
+      &.iconic
+        &:before
+          +iconic(20px)
+          content: attr(title)
+          margin-right: 5px

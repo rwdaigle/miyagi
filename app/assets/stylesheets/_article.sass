@@ -1,6 +1,5 @@
 ol.articles
   +reset_list
-  
   > li
     h2
       margin: 0
@@ -8,20 +7,19 @@ ol.articles
       a
         text-decoration: none
         
-    p
-      &.date
-        color: rgba($fun_color, 0.5)
-        +small_font_size
-        padding: 0
-        margin: 0
-        body.night &
-          color: rgba($night_text_color, 0.4)
 
 article
 
   padding: 40px 0
 
-  .meta
+  p
+    &.date
+      color: rgba($fun_color, 0.5)
+      +small_font_size
+      padding: 0
+      margin: 0
+      body.night &
+        color: rgba($night_text_color, 0.4)
     
   .author
     padding: 10px

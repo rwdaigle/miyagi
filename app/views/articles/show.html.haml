@@ -4,9 +4,12 @@
 
   %h1= @article.title
   
-  .meta
-    %span.date
-      = @article.published_at.stamp("March 8, 2004")
+  %p.date
+    Published 
+    by 
+    = @article.author.name
+    on
+    = @article.published_at.stamp("March 8, 2004")
 
   .body= raw(@article.body_html)
 
@@ -26,13 +29,14 @@
 
   .license= render :partial => 'license'
   
-.side
-  .links
-    %h4 Links referenced in this article
-    %ul
-      - for link in @article.links
-        %li(class="#{link.type}")
-          = "[#{link.type.downcase}]"
-          = link_to(link.url, link.url)
+  %h3 Links mentioned in this article
+
+  %ul.link_summary
+    - for link in @article.links
+      %li
+        - if icon_words.include?(link.humanized_type)
+          = link_to(link.humanized_url, link.url, class: 'iconic', title: icon_for(link.humanized_type))
+        - else
+          = link_to(link.humanized_url, link.url)
           
-  %ul#repos
+  //%ul#repos
