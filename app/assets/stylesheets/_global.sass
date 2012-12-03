@@ -15,10 +15,10 @@ body
 #{headings()}
   +transition(all 0.5s)
   +fancy_font
-  color: $foreground_color
+  color: $heading_color
   font-weight: bold
   body.night &
-    color: $night_foreground_color
+    color: $night_heading_color
 
 h1
   font-size: 32px
@@ -107,33 +107,30 @@ footer
 $yy_size: 32px
 $yy_apogee: 50px
 
-#yin_yang_container
+#yin_yang
   +flexi
   height: $yy_size + $yy_apogee
   margin-top: 60px
   overflow: hidden
-  text-align: center
-  
-#yin_yang
-  display: inline-block
-  +transition(all 1.0s ease-in-out)
-  cursor: pointer
-  width: $yy_size
-  body.night &
-    +rotate(180deg)
-  .day
-    +iconic(32px)
-    color: rgba($foreground_color, 0.3)
-  .night
-    +rotate(180deg)
-    +iconic(26px)
-    padding: 5px
-    color: rgba($background_color, 0.3)
-  .side
-    padding-bottom: $yy_apogee
+  text-align: center  
+  > .container
+    display: inline-block
+    +transition(all 1.0s ease-in-out)
+    cursor: pointer
+    width: $yy_size
+    body.night &
+      +rotate(180deg)
+    .sun
+      +iconic(32px)
+      color: rgba($foreground_color, 0.3)
+    .moon
+      +rotate(180deg)
+      +iconic(26px)
+      padding: 5px
+      color: $moon_color
+    .side
+      padding-bottom: $yy_apogee
 
-
-  
 .subscribe
   position: fixed
   top: 20px

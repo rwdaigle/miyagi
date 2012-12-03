@@ -21,4 +21,8 @@ module ApplicationHelper
     %w(fukuoka github moon sun twitter)
   end
   
+  def markdown(text, options)
+    MarkdownRenderer.to_html(text, localize: true).html_safe
+  end
+  
 end

@@ -11,7 +11,7 @@
     on
     = @article.published_at.stamp("March 8, 2004")
 
-  .body= raw(@article.body_html)
+  .body= @article.body_html.html_safe
 
   .discuss
     %h4 Discuss:

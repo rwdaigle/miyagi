@@ -9,7 +9,10 @@ class Link < ActiveRecord::Base
   belongs_to :article
   
   def humanized_url
-    hu = url.sub(/https?:\/\//, '').sub('github.com/', '')
+    hu = url.
+      sub(/https?:\/\//, '').
+      sub(/^github\.com\//, '').
+      sub(/^www\./, '')
     return hu.slice(0, 50) + "..." if hu.size > 50
     hu
   end

@@ -25,24 +25,16 @@
 
       = render :partial => '/subscribe'
       
-      //.twitter= link_to("@MiyagiJournal", "https://twitter.com/MiyagiJournal")
-    
-      
     .main
       = yield
 
     %footer
     
-      %p
-        = link_to t('app.name'), root_path
-        is a journal of high-quality, general-purpose technical content. 
-        Its contributors are thoughtful practitioners of modern application 
-        development with a variety of interests. If this sounds like you, 
-        = link_to("let us know", "https://twitter.com/MiyagiJournal") + "."
+      %p= markdown 'app.footer_blurb', localize: true
 
-      #yin_yang_container
-        #yin_yang
-          .side.day= icon_for :sun
-          .side.night= icon_for :moon
+      #yin_yang
+        .container
+          .side.sun= icon_for :sun
+          .side.moon= icon_for :moon
 
     
