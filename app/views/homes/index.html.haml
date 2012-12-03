@@ -1,30 +1,30 @@
 - content_for(:page_title, "The Technique of Developing Modern Applications")
 
-.main
+%ol.content.articles
 
-  %h2 Articles  
-  %ol.content.articles
-    - for article in @articles
-      %li.article
-
-        %h3= link_to(article.title, article)
-        
-        %span.summary
-          = article.summary
-
-        .meta
-          %span.date 
-            Published
-            = article.published_at.stamp("March 8, 2004")
+  - for article in @articles
+    %li.article
+      %h2= link_to(article.title, article)
+      %p.date
+        = article.published_at.stamp("March 8, 2004")
+      %p.summary
+        = article.summary
 
 .side
 
   %h2 About
+  
   %p
-    Miyagi is a journal of high-quality, general-purpose technical content. Its contributors are thoughtful practitioners of modern application development with a variety of interests.
-  %p= "If this sounds like you, #{link_to("let us know", "https://twitter.com/MiyagiJournal")}.".html_safe
+    Miyagi is a journal of high-quality, general-purpose technical content. 
+    Its contributors are thoughtful practitioners of modern application 
+    development with a variety of interests.
+    
+  %p
+    If this sounds like you, 
+    = link_to("let us know", "https://twitter.com/MiyagiJournal") + "."
 
   %h2 Recent authors
+  
   %ol.authors
     - for author in User.authors.random.limit(4)
       %li

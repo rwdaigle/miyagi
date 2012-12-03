@@ -1,8 +1,9 @@
-- if current_user.subscribed?
-  = "You are subscribed as #{current_user.email}"
-- else
-  = form_tag(subscribe_users_path) do
-    - if current_user.email
-      = submit_tag "Subscribe as #{current_user.email}"
-    - else
-      = text_field_tag :email, "Subscribe for periodic updates", :size => 30
+.subscribe
+  - if current_user.subscribed?
+    %p You are subscribed as #{current_user.email}
+  - else
+    = form_tag(subscribe_users_path) do
+      - if current_user.email
+        = submit_tag "Subscribe as #{current_user.email}"
+      - else
+        = text_field_tag :email, "", :size => 30, :placeholder => "Subscribe for periodic updates"
