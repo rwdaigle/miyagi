@@ -10,9 +10,17 @@ $link_color: $fun_color
 $night_background_color: rgba(#000, 0.9)
 $night_text_color: rgba(#FFF, 0.6)
 $night_foreground_color: rgba(#FFF, 1)
-$night_fun_color: #CC0000
-$night_link_color: rgba(#FFF, 0.8)
+$night_fun_color: #CF3900
+$night_link_color: $night_fun_color
 
 // Config
 $content_width: 600px
 $moon_size: 30px
+
+=tranny
+  +transition(all 0.3s)
+
+=flexi
+  +flexible_centered_container($content_width)
+  padding-left: 10px
+  padding-right: 10px

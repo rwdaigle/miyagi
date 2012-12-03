@@ -13,26 +13,36 @@
     = render :partial => '/tracking'
     = render :partial => '/discuss'
 
-
-  %body
-    .header
+  %body{class: ("night" if cookies[:night] == "true")}
+    %header
     
-      %a#logo{href: root_path}
-        .icon= icon_for :fukuoka
-        .label
-          %h1= t 'app.name'
-          %h2= t 'app.tagline'
+      - if request.path == root_path
+        %a#logo{href: root_path}
+          .icon= icon_for :fukuoka
+          .label
+            %h1= t 'app.name'
+            %h2= t 'app.tagline'
 
       = render :partial => '/subscribe'
       
       //.twitter= link_to("@MiyagiJournal", "https://twitter.com/MiyagiJournal")
+    
       
     .main
       = yield
-    
 
-    #yin_yang
-      .side.day= icon_for :sun
-      .side.night= icon_for :moon
+    %footer
+    
+      %p
+        = link_to t('app.name'), root_path
+        is a journal of high-quality, general-purpose technical content. 
+        Its contributors are thoughtful practitioners of modern application 
+        development with a variety of interests. If this sounds like you, 
+        = link_to("let us know", "https://twitter.com/MiyagiJournal") + "."
+
+      #yin_yang_container
+        #yin_yang
+          .side.day= icon_for :sun
+          .side.night= icon_for :moon
 
     
