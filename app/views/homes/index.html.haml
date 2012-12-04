@@ -3,25 +3,15 @@
 %ol.content.articles
 
   - for article in @articles
-    %li.article
-      %h2= link_to(article.title, article)
-      %p.date
-        = article.published_at.stamp("March 8, 2004")
-      %p.summary
-        = article.summary
+    %li
+      %article
+        %h2= link_to(article.title, article)
+        %p.date
+          = article.published_at.stamp("March 8, 2004")
+        %p.summary
+          = article.summary
 
 .side
-
-  %h2 About
-  
-  %p
-    Miyagi is a journal of high-quality, general-purpose technical content. 
-    Its contributors are thoughtful practitioners of modern application 
-    development with a variety of interests.
-    
-  %p
-    If this sounds like you, 
-    = link_to("let us know", "https://twitter.com/MiyagiJournal") + "."
 
   %h2 Recent authors
   
