@@ -1,7 +1,9 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   app:
     name: "Miyagi"
     tagline: "A collaborative journal on the art and technique of modern application development."
+    footer_blurb: |
+      Miyagi is a journal of high-quality, general-purpose technical content. Its contributors 
+      are thoughtful practitioners of modern application development with a variety of interests. 
+      If this sounds like you, [tweet at us](https://twitter.com/MiyagiJournal).
+    

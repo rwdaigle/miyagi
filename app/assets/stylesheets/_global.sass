@@ -1,28 +1,32 @@
 // Global Styles
 body
-  +transition(all 0.3s)
+  +transition(all 0.5s)
   +normal_font
-  font-size: 16px
-  line-height: 24px
+  +normal_font_size
   background-color: $background_color
   color: $text_color
+  margin: 0
+  padding: 0
   &.night
     color: $night_text_color
     background-color: $night_background_color
 
 .main
-  max-width: $content_width
-  margin-left: 245px
+  +flexi
 
 #{headings()}
+  +transition(all 0.5s)
   +fancy_font
-  color: $foreground_color
+  color: $heading_color
   font-weight: bold
+  a
+    text-decoration: none
   body.night &
-    color: $night_foreground_color
+    color: $night_heading_color
 
 h1
   font-size: 32px
+  line-height: 36px
 
 h2
   font-size: 26px
@@ -38,6 +42,152 @@ h4
   padding: 0
 
 a
+  +tranny
   color: $link_color
   body.night &
     color: $night_link_color
+
+p
+  +normal_font_size
+    
+// pygments Overrides
+.highlight
+  background-color: $background_color !important
+  +border-radius(5px)
+  padding: 5px 10px
+  pre
+    +code_font
+    padding: 0
+    margin: 0
+    font-size: 14px
+
+header
+
+  .container
+    +flexi
+  
+  a.logo
+    text-decoration: none
+    display: block  
+    padding: 50px 0 80px 0
+  
+    .icon
+      +transition(all 0.5s)
+      +iconic(150px)
+      text-align: center
+      color: $fun_color
+      // text-shadow: 3px 3px 0px rgba($fun_color, 0.2)
+      body.night &
+        color: $night_fun_color
+        // text-shadow: 3px 3px 0px rgba($night_fun_color, 0.1)
+        
+    .label
+    
+      h1 
+        text-align: center
+        font-size: 48px
+        line-height: 48px
+        margin: 0
+        padding: 30px 0 10px 0
+      
+      h2
+        text-align: center
+        font-weight: normal
+        +opacity(0.5)
+        font-size: 24px
+        line-height: 26px
+        margin: 0
+        padding: 0
+
+  &.compact    
+    min-height: 60px
+    padding: 0
+    background-color: $fun_color
+    body.night &
+      background-color: $night_fun_color
+    .container
+      margin: 0
+      max-width: none
+      min-width: auto
+    a.logo
+      padding: 0
+      max-width: none
+      min-width: auto
+      text-align: center
+      .icon
+        display: inline-block
+        +iconic(32px)
+        margin: 8px 10px 0 10px
+        color: mix($fun_color, $foreground_color, 80%)
+        display: none
+      .label
+        display: inline-block
+        padding: 10px 0
+        h1
+          margin: 0
+          padding: 0 10px
+          display: inline-block
+          font-size: 18px
+          color: rgba($background_color, 1)
+        h2
+          margin: 0
+          display: inline-block
+          +normal_font_size
+          +mobile-only
+            padding-bottom: 10px
+          
+          color: rgba($background_color, .6)
+          +opacity(1)
+
+footer
+  +flexi
+  margin-top: 100px
+  p
+    +small_font_size
+    text-align: center
+    +opacity(0.8)
+
+$yy_size: 32px
+$yy_apogee: 50px
+
+#yin_yang
+  +flexi
+  height: $yy_size + $yy_apogee
+  margin-top: 60px
+  overflow: hidden
+  text-align: center  
+  > .container
+    display: inline-block
+    +transition(all 1.0s ease-in-out)
+    cursor: pointer
+    width: $yy_size
+    body.night &
+      +rotate(180deg)
+    .sun
+      +iconic(32px)
+      color: $sun_color
+    .moon
+      +rotate(180deg)
+      +iconic(26px)
+      padding: 5px
+      color: $moon_color
+    .side
+      padding-bottom: $yy_apogee
+
+.subscribe
+  display: none
+  position: fixed
+  top: 20px
+  right: 20px
+  input
+    +normal_font
+    padding: 5px
+    +small_font_size
+    //+border-radius(2px)
+    outline: $fun_color
+    max-width: 200px
+    
+  p
+    +small_font_size
+    margin: 0
+    padding: 0
