@@ -11,12 +11,12 @@
         %p.summary
           = article.summary
 
-.side
+/ .side
 
-  %h2 Recent authors
+/   %h2 Recent authors
   
-  %ol.authors
-    - for author in User.authors.random.limit(4)
-      %li
-        .name= author.name
-        .profile= raw(author.profile_html)
+/   %ol.authors
+/     - for author in User.authors.random.limit(4)
+/       %li
+/         .name= author.name
+/         .profile= raw(author.profile_html)

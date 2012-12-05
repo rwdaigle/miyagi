@@ -22,7 +22,8 @@ module ApplicationHelper
   end
   
   def japan_prefectures
-    %w(fukuoka kochi miyagi osaka)
+    # %w(fukuoka kochi miyagi osaka)
+    %w(fukuoka)
   end
   
   def markdown(text, options)

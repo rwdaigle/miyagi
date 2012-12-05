@@ -14,29 +14,29 @@
   .body= @article.body_html.html_safe
 
   .discuss
-    %h4 Discuss:
-    .hn= link_to("Hacker News", "http://news.ycombinator.com/submit", :class => "hn-share-button")
-    .twitter= link_to("Twitter", "https://twitter.com/share", :class => "twitter-share-button", :"data-via" => "MiyagiJournal")
+    %span.hn= link_to("Hacker News", "http://news.ycombinator.com/submit", :class => "hn-share-button")
+    %span.twitter= link_to("Twitter", "https://twitter.com/share", :class => "twitter-share-button", :"data-via" => "MiyagiJournal")
   
   .author
-    .name= @article.author.name
-    .links
-      %ul
-        %li.twitter= "@#{@article.author.twitter_username}"
-        %li.github= @article.author.gh_username
-        %li.site= link_to(@article.author.site_url)
+    .name
+      = "\"#{@article.title}\" was written by #{link_to(@article.author.name, @article.author.site_url)}".html_safe
+      / and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+    / .links
+    /   %ul
+    /     %li.twitter= "@#{@article.author.twitter_username}"
+    /     %li.github= @article.author.gh_username
+    /     %li.site= link_to(@article.author.site_url)
     .profile= raw(@article.author.profile_html)
 
-  .license= render :partial => 'license'
+  /.license= render :partial => 'license'
   
-  %h3 Links mentioned in this article
-
-  %ul.link_summary
-    - for link in @article.links
-      %li
-        - if icon_words.include?(link.humanized_type)
-          = link_to(link.humanized_url, link.url, class: 'iconic', title: icon_for(link.humanized_type))
-        - else
-          = link_to(link.humanized_url, link.url)
+  / %h3 Links mentioned in this article
+  / %ul.link_summary
+  /   - for link in @article.links
+  /     %li
+  /       - if icon_words.include?(link.humanized_type)
+  /         = link_to(link.humanized_url, link.url, class: 'iconic', title: icon_for(link.humanized_type))
+  /       - else
+  /         = link_to(link.humanized_url, link.url)
           
   //%ul#repos
