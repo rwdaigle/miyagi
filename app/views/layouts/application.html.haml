@@ -23,7 +23,7 @@
             %h1= t 'app.name'
             %h2= t 'app.tagline'
 
-      = render :partial => '/subscribe'
+      = render :partial => '/subscribe' unless request.path == root_path
       
     .main
       = yield
