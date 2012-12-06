@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_filter :register_content_viewed_event, :only => :show
 
   def show
-    @article = Article.published.find(params[:id])
+    @article = Article.published.includes(:author).find(params[:id])
     # fresh_when(@article)
   end
 
