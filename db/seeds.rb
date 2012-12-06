@@ -25,7 +25,7 @@ abd_summary = "Automated testing is a proven tool for verifying application beha
 ppds_summary = "Assigning a group of worker processes to operate, in parallel, against a large dataset is a very efficient approach to data processing. Process partitioning is a scalable approach for coordinating work across a pool of independent workers."
 
 articles = [
-  ["ped", "Assertions by Design", "https://raw.github.com/gist/bf2e720a2d045cd70725/assertions.md", abd_summary],
+  ["ped", "Making Tests Unnecessary: Assert by Design", "https://raw.github.com/gist/bf2e720a2d045cd70725/assertions.md", abd_summary],
   ["ryandotsmith", "Process Partitioning in Distributed Systems", "https://raw.github.com/gist/4127005/process-partitioning.md", ppds_summary]
 ]
 
