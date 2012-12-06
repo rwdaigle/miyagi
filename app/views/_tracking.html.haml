@@ -20,15 +20,6 @@
   :javascript
     $(function() {
 
-      / // People
-      / mixpanel.people.identify("#{current_user.uuid}");
-      / mixpanel.people.set({
-      /   "uuid": "#{current_user.uuid}",
-      /   "$last_login": new Date(),
-      /   "$created": "#{current_user.created_at}",
-      /   "Referrer": document.referrer
-      / });
-
       // Event
       mixpanel.identify("#{current_user.uuid}");
       mixpanel.track('First visit', {
@@ -61,12 +52,6 @@
   :javascript
     $(function() {
 
-      / // People
-      / mixpanel.people.identify("#{current_user.uuid}");
-      / mixpanel.people.set({
-      /   "$last_login": new Date()
-      / });
-
       // Event
       mixpanel.name_tag("#{user_label(current_user)}");
       mixpanel.track('Viewed content', {
@@ -79,13 +64,6 @@
 -if event?(:homepage_viewed)
   :javascript
     $(function() {
-
-      / // People
-      / mixpanel.people.identify("#{current_user.uuid}");
-      / mixpanel.people.set({
-      /   "$last_seen": new Date(),
-      /   "$last_login": new Date()
-      / });
 
       // Event
       mixpanel.name_tag("#{user_label(current_user)}");
