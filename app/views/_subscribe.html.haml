@@ -1,4 +1,4 @@
 .subscribe
   - if !current_user.subscribed?
     = form_tag(subscribe_users_path) do
-      = text_field_tag :email, "", :size => 30, :placeholder => "Send me Miyagi updates at..."
+      = text_field_tag :email, "", :size => 30, :placeholder => "Miyagi, send me new articles"
