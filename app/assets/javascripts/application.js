@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ezcookie
+//= require jquery.transit
 //= require handlebars.runtime
 //= require_tree ./templates
 //= require jquery.pjax
