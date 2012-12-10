@@ -11,7 +11,7 @@ Adj::Application.routes.draw do
   # Thought this was an option at one time?
   all = [:index, :show, :new, :create, :edit, :update, :destroy]
 
-  resources :articles, :only => [:show] do
+  resources :articles, :only => [:show, :index] do
     resources :comments, :only => [:create]
   end
 
