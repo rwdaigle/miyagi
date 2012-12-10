@@ -4,9 +4,13 @@
     %title
       = "#{yield(:page_title)} - #{t('app.name')}"
     = stylesheet_link_tag "application", :media => "all"
-    %link(rel="alternate" type="application/atom+xml" title="#{t('app.name')} article feed" href="#{articles_path(format: 'atom')}")
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    %link{rel:"alternate", type: "application/atom+xml", title: "#{t('app.name')} article feed", href: articles_path(format: 'atom')}
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//use.typekit.net/hhr2ppk.js"></script>
+    
+    <script type="text/javascript" src="//use.typekit.net/xii6gcf.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     
     / = airbrake_javascript_notifier
