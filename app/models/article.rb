@@ -16,12 +16,24 @@ class Article < ActiveRecord::Base
   before_create :generate_slug
   before_save :generate_body_html, :extract_links
 
+  class << self
+
+    def from_url(markdown_url)
+      req = Curl.get(markdown_url)
+      new(:body => req.body_str)
+    end
+  end
+
   def to_param
     "#{id}-#{slug}"
   end
 
   def to_log
     { article_id: id, article_title: title }
+  end
+
+  def publish!
+    update_attribute(:published_at, Time.now)
   end
   
   private

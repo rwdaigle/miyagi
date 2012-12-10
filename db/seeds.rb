@@ -31,7 +31,9 @@ articles = [
 
 articles.each do |content|
   puts "Fetching #{content[1]} content..."
-  req = Curl.get(content[2])
-  m = Article.create(:author => User.find_by_twitter_username(content[0]), :summary => content[3], :title => content[1], :body => req.body_str, :published_at => Time.now)
+  m = Article.from_url(content[2])
+  m.attributes = { :author => User.find_by_twitter_username(content[0]), :summary => content[3], :title => content[1] }
+  m.save
   puts m.errors.full_messages.join(', ') if !m.valid?
+  m.publish!
 end
