@@ -27,6 +27,8 @@ body
 h1
   font-size: 32px
   line-height: 36px
+  font-style: normal
+  font-weight: 700
 
 h2
   font-size: 26px
@@ -155,14 +157,12 @@ $yy_apogee: 50px
   height: $yy_size + $yy_apogee
   margin-top: 60px
   overflow: hidden
-  text-align: center  
+  text-align: center
   > .container
     display: inline-block
     +transition(all 1.0s ease-in-out)
     cursor: pointer
     width: $yy_size
-    body.night &
-      +rotate(180deg)
     .sun
       +iconic(32px)
       color: $sun_color
