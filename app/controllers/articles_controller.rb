@@ -4,9 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.published.recent.includes(:author).limit(10)
-    respond_to do |format|
-      format.atom
-    end
+    fresh_when(:last_modified => @articles.maximum(:updated_at))
   end
 
   def show
