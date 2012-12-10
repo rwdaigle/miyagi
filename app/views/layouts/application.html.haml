@@ -4,6 +4,7 @@
     %title
       = "#{yield(:page_title)} - #{t('app.name')}"
     = stylesheet_link_tag "application", :media => "all"
+    %link(rel="alternate" type="application/atom+xml" title="#{t('app.name')} article feed" href="#{articles_path(format: 'atom')}")
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="//use.typekit.net/hhr2ppk.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -32,8 +33,8 @@
       = yield
 
     %footer
-    
       %p= markdown 'app.footer_blurb', localize: true
+      / %p.distribution= render :partial => '/distribute'
 
       #yin_yang
         .container

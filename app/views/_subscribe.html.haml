@@ -1,4 +1,6 @@
 .subscribe
-  - if !current_user.subscribed?
-    = form_tag(subscribe_users_path) do
-      = text_field_tag :email, "", :size => 30, :placeholder => "Miyagi, send me new articles"
+  <a href="https://twitter.com/MiyagiJournal" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @MiyagiJournal</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  / - if !current_user.subscribed?
+  /   = form_tag(subscribe_users_path) do
+  /     = text_field_tag :email, "", :size => 30, :placeholder => "Miyagi, send me new articles"
