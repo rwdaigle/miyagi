@@ -26,10 +26,12 @@
     %header{class: ("compact" unless request.path == root_path)}
       .container
         %a.logo{href: root_path}
-          .icon= icon_for japan_prefectures.sample
+          .icon= icon_for :fukuoka
           .label
             %h1= t 'app.name'
-            %h2= t 'app.tagline'
+            %h2
+              %span.is is
+              = t 'app.tagline'
 
       = render :partial => '/subscribe' unless request.path == root_path
       

@@ -1,0 +1,31 @@
+footer
+  +flexi
+  margin-top: 50px
+  p
+    +small_font_size
+    text-align: center
+
+$yy_size: 32px
+$yy_apogee: 50px
+
+#yin_yang
+  +flexi
+  height: $yy_size + $yy_apogee
+  margin-top: 60px
+  overflow: hidden
+  text-align: center
+  > .container
+    display: inline-block
+    +transition(all 1.0s ease-in-out)
+    cursor: pointer
+    width: $yy_size
+    .sun
+      +iconic(32px)
+      color: $sun_color
+    .moon
+      +rotate(180deg)
+      +iconic(26px)
+      padding: 5px
+      color: $moon_color
+    .side
+      padding-bottom: $yy_apogee
