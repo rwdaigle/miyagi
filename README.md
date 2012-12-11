@@ -1,15 +1,19 @@
-# The Application Development Journal
+# Miyagi
+
+http://miyagi.herokuapp.com/ An open journal on the technique of application development
 
 ## Local setup
 
 ```bash
 bundle
 cp config/database.yml.example config/database.yml
-rake data:staging:reset
+rake db:setup
 foreman start
 ```
 
 Open [localhost:5000](http://localhost:5000).
+
+Once in development, the seed data can be refreshed (deleted and reinstated from db:seed) with `rake data:refresh`.
 
 ## Icon Font Generation
 
@@ -17,5 +21,3 @@ Open [localhost:5000](http://localhost:5000).
 brew install fontforge eot-utils ttfautohint
 rake font
 ```
-
-Once in development, the seed data can be refreshed (deleted and reinstated from db:seed) with `rake data:refresh`.
