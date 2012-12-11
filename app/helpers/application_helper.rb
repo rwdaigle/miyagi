@@ -13,17 +13,12 @@ module ApplicationHelper
   # 1. fontcustom supports ligatures
   # 2. webkit supports CSS transitions on :before elements
   def icon_for(word)
-    return "?" unless icon_words.include?(word.to_s)
-    "&#xf#{100 + icon_words.index(word.to_s)}".html_safe
-  end
-
-  def icon_words
-    %w(fukuoka github kochi miyagi moon osaka sun twitter)
+    return "?" unless Font.characters.include?(word.to_s)
+    "&#xf#{100 + Font.characters.index(word.to_s)}".html_safe
   end
   
   def japan_prefectures
-    # %w(fukuoka kochi miyagi osaka)
-    %w(fukuoka)
+    %w(fukuoka kochi miyagi osaka)
   end
   
   def markdown(text, options)
