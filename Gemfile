@@ -32,3 +32,7 @@ group :assets do
   gem 'zazz'
   gem 'handlebars_assets'
 end
+
+group :develpment do
+  gem 'fontcustom'
+end
