@@ -7,7 +7,9 @@ set :markdown_engine, :redcarpet
 
 Time.zone = "Eastern Time (US & Canada)"
 
-page "*", :layout => "application"
+page "/", :layout => "application"
+page "articles.atom", :layout => nil
+page "articles/*", :layout => "article"
 
 require "lib/helpers"
 helpers ApplicationHelpers
