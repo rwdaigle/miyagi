@@ -7,14 +7,14 @@ set :markdown_engine, :redcarpet
 
 Time.zone = "Eastern Time (US & Canada)"
 
+page "*", :layout => "application"
+
+require "lib/helpers"
+helpers IconHelpers
+
+activate :i18n
+
 configure :build do
   activate :minify_css
   activate :minify_javascript
-end
-
-activate :blog do |blog|
-  blog.paginate = true
-  blog.page_link = "page-:num"
-  blog.per_page = 20
-  blog.sources = "source/articles/"
 end

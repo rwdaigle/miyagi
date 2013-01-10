@@ -1,0 +1,6 @@
+# Logfile created on 2013-01-10 14:23:36 -0500 by logger.rb/31641
+[01/10/13 14:23:36 -0500 ni.local (16287)] INFO : Dispatcher: thin
+[01/10/13 14:23:36 -0500 ni.local (16287)] ERROR : Unable to determine application name. Please set the application name in your newrelic.yml or in a NEW_RELIC_APP_NAME environment variable.
+[01/10/13 14:23:36 -0500 ni.local (16287)] WARN : Agent configured not to send data in this environment.
+[01/10/13 14:23:36 -0500 ni.local (16287)] INFO : New Relic Ruby Agent 3.5.1 Initialized: pid = 16287
+[01/10/13 14:23:36 -0500 ni.local (16287)] INFO : Agent Log at /Users/ryan/Dropbox/Personal/Development/side/miyagi/log/newrelic_agent.log
