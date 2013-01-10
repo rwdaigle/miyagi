@@ -1,0 +1,44 @@
+!!! Strict
+%html
+  %head
+    %title
+      = "#{yield_content(:page_title)} - #{I18n.t('app.name')}" 
+    = stylesheet_link_tag "application", :media => "all"
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    / %link{rel:"alternate", type: "application/atom+xml", title: "#{I18n.t('app.name')} article feed", href: articles_path(format: 'atom')}
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="//use.typekit.net/xii6gcf.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+    = javascript_include_tag "application"    
+    = partial 'ga'
+    = partial 'discuss'
+
+  %body
+
+    %header{class: ("compact" unless request.path == root_path)}
+      .container
+        %a.logo{href: root_path}
+          .icon= icon_for :fukuoka
+          .label
+            %h1= I18n.t('app.name')
+            %h2
+              %span.is is
+              = I18n.t('app.tagline')
+
+      = partial 'subscribe' unless request.path == root_path
+      
+    .main
+      = yield
+
+    %footer
+      %p= partial 'footer'
+      / %p.distribution= render :partial => '/distribute'
+
+      #yin_yang
+        .container
+          .side.sun= icon_for :sun
+          .side.moon= icon_for :moon

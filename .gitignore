@@ -5,10 +5,13 @@
 # git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-/.bundle
+.bundle
 
 # Ignore the build directory
 /build
+/tmp
 
 # Ignore Sass' cache
-/.sass-cache
+.sass-cache
+
+.env

@@ -1,0 +1,45 @@
+Connecting to database specified by DATABASE_URL
+Starting the New Relic Agent.
+NewRelic Agent Developer Mode enabled.
+To view performance information, go to http://localhost:5000/newrelic
+Installed New Relic Browser Monitoring middleware
+  [1m[36mUser Load (10.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."uuid" = 'b05fc9e89742e36b8d371c241cf04aa3e6c097e6' LIMIT 1[0m
+  [1m[35mArticle Load (6.2ms)[0m  SELECT "articles".* FROM "articles" WHERE (published_at IS NOT NULL) ORDER BY published_at DESC LIMIT 10
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (74, 73)[0m
+Compiled main.css  (2629ms)  (pid 16287)
+Compiled pygments.css  (0ms)  (pid 16287)
+Compiled application.css  (2667ms)  (pid 16287)
+Compiled jquery.js  (6ms)  (pid 16287)
+Compiled jquery_ujs.js  (0ms)  (pid 16287)
+Compiled jquery.ezcookie.js  (0ms)  (pid 16287)
+Compiled jquery.transit.js  (0ms)  (pid 16287)
+Compiled handlebars.runtime.js  (0ms)  (pid 16287)
+Compiled templates/repo.js  (485ms)  (pid 16287)
+Compiled jquery.pjax.js  (0ms)  (pid 16287)
+Compiled links.js  (0ms)  (pid 16287)
+Compiled repo_man.js  (334ms)  (pid 16287)
+Compiled subscribe.js  (1ms)  (pid 16287)
+Compiled yin_yang.js  (297ms)  (pid 16287)
+Compiled application.js  (1825ms)  (pid 16287)
+Served asset /application.css - 200 OK (7ms)
+Served asset /main.css - 200 OK (3ms)
+Served asset /pygments.css - 200 OK (2ms)
+Served asset /jquery.js - 200 OK (4ms)
+Served asset /jquery_ujs.js - 200 OK (5ms)
+Served asset /jquery.ezcookie.js - 200 OK (4ms)
+Served asset /jquery.transit.js - 200 OK (4ms)
+Served asset /repo_man.js - 200 OK (2ms)
+Served asset /handlebars.runtime.js - 200 OK (10ms)
+Served asset /templates/repo.js - 200 OK (2ms)
+Served asset /subscribe.js - 200 OK (3ms)
+Served asset /jquery.pjax.js - 200 OK (12ms)
+Served asset /links.js - 200 OK (6ms)
+Served asset /yin_yang.js - 200 OK (2ms)
+Served asset /application.js - 200 OK (111ms)
+Served asset /miyagi2.woff - 200 OK (21ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uuid" = 'b05fc9e89742e36b8d371c241cf04aa3e6c097e6' LIMIT 1
+  [1m[36mArticle Load (4.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 AND (published_at IS NOT NULL) LIMIT 1[0m  [["id", "18-make-tests-unnecessary-assert-by-design"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (74)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."uuid" = 'b05fc9e89742e36b8d371c241cf04aa3e6c097e6' LIMIT 1[0m
+  [1m[35mArticle Load (0.9ms)[0m  SELECT "articles".* FROM "articles" WHERE (published_at IS NOT NULL) ORDER BY published_at DESC LIMIT 10
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (74, 73)[0m

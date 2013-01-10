@@ -1,7 +1,10 @@
 source :rubygems
 
 gem "middleman", "~>3.0.7"
-gem 'middleman-blog'
+gem "tzinfo"
+gem "psych"
+gem "redcarpet"
 
-gem 'redcarpet'
-gem 'pygments.rb'
+group :develpment do
+  gem 'fontcustom'
+end

@@ -1,0 +1,84 @@
+// Global Styles
+body
+  +transition(all 0.5s)
+  +normal_font
+  +normal_font_size
+  background-color: $background_color
+  color: $text_color
+  margin: 0
+  padding: 0
+  &.night
+    color: $night_text_color
+    background-color: $night_background_color
+
+.main
+  +flexi
+
+#{headings()}
+  +transition(all 0.5s)
+  +fancy_font
+  color: $heading_color
+  font-weight: bold
+  a
+    text-decoration: none
+  body.night &
+    color: $night_heading_color
+
+h1
+  font-size: 32px
+  line-height: 36px
+  font-style: normal
+  font-weight: 700
+
+h2
+  font-size: 22px
+
+h3
+  font-size: 18px
+  margin: 20px 0 0 0
+  padding: 0
+  color: $fun_color
+
+h4
+  margin: 20px 0 0 0
+  padding: 0
+
+a
+  +tranny
+  color: $link_color
+  body.night &
+    color: $night_link_color
+
+p
+  +normal_font_size
+  margin: 0
+  padding: 10px 0
+    
+// pygments Overrides
+.highlight
+  background-color: $background_color !important
+  +border-radius(5px)
+  padding: 5px 10px
+  pre
+    +code_font
+    padding: 0
+    margin: 0
+    font-size: 14px
+
+.subscribe
+  position: fixed
+  top: 20px
+  right: 20px
+  input
+    +normal_font
+    padding: 5px
+    +small_font_size
+    //+border-radius(2px)
+    outline: $fun_color
+    max-width: 200px
+    height: 10px
+    
+  p
+    +small_font_size
+    margin: 0
+    padding: 0

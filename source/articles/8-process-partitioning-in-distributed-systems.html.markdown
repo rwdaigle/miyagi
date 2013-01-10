@@ -7,8 +7,6 @@ date: 2012-12-06 16:33 -05:00
 
 When working with large, high volume, low latency systems, it is often the case that processing data sequentially becomes detrimental to the system's health. If we only allow 1 process to work on our data we run into several challenges:
 
-READMORE
-
 * Our process may fall behind resulting in a situation which it is impossible for our process to catch up.
 * Our singleton process could crash and leave our system in a degraded state.
 * The average latency of data processing could be dramatically affected by outlying cases.
