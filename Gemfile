@@ -5,6 +5,6 @@ gem "tzinfo"
 gem "psych"
 gem "redcarpet"
 
-group :develpment do
-  gem 'fontcustom'
-end
+# Zeke's playground
+gem "zazz"
+gem 'fontcustom'

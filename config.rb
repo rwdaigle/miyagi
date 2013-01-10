@@ -10,9 +10,10 @@ Time.zone = "Eastern Time (US & Canada)"
 page "*", :layout => "application"
 
 require "lib/helpers"
-helpers IconHelpers
+helpers ApplicationHelpers
 
 activate :i18n
+activate :directory_indexes
 
 configure :build do
   activate :minify_css

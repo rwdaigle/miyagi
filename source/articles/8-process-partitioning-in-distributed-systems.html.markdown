@@ -1,6 +1,8 @@
 ---
 title: Process Partitioning in Distributed Systems
 date: 2012-12-06 16:33 -05:00
+summary:
+  Assigning a group of worker processes to operate, in parallel, against a large dataset is a very efficient approach to data processing. Process partitioning is a scalable approach for coordinating work across a pool of independent workers.
 ---
 
 ## The problem

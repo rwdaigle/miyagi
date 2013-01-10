@@ -1,1 +1,20 @@
-%h1 Miyagi
+- content_for(:page_title, I18n.t('app.tagline'))
+
+%ol.content.articles
+
+  - for article in sitemap.resources.select { |r| r.path.start_with?('articles/') }
+    %li
+      %article
+        %h2= link_to(article.data['title'], article)
+        /%p.date= article.published_at.stamp("March 8, 2004")
+        %p.summary= article.data['summary']
+
+/ .side
+
+/   %h2 Recent authors
+  
+/   %ol.authors
+/     - for author in User.authors.random.limit(4)
+/       %li
+/         .name= author.name
+/         .profile= raw(author.profile_html)

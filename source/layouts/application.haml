@@ -19,9 +19,9 @@
 
   %body
 
-    %header{class: ("compact" unless request.path == root_path)}
+    %header{class: ("compact" unless root_path?)}
       .container
-        %a.logo{href: root_path}
+        %a.logo{href: '/'}
           .icon= icon_for :fukuoka
           .label
             %h1= I18n.t('app.name')
@@ -29,16 +29,9 @@
               %span.is is
               = I18n.t('app.tagline')
 
-      = partial 'subscribe' unless request.path == root_path
+      = partial 'subscribe' unless root_path?
       
     .main
       = yield
 
-    %footer
-      %p= partial 'footer'
-      / %p.distribution= render :partial => '/distribute'
-
-      #yin_yang
-        .container
-          .side.sun= icon_for :sun
-          .side.moon= icon_for :moon
+    %footer= partial 'footer'
