@@ -1,6 +1,11 @@
 ---
 title: Process Partitioning in Distributed Systems
-date: 2012-12-06 16:33 -05:00
+date: December 6, 2012
+author:
+  name: Ryan Smith
+  site: http://ryandotsmith.heroku.com/
+  profile:
+    Ryan builds distributed systems at <a href="http://heroku.com">Heroku</a>. His writing is motivated by many successes and failures experienced with production systems at Heroku.
 summary:
   Assigning a group of worker processes to operate, in parallel, against a large dataset is a very efficient approach to data processing. Process partitioning is a scalable approach for coordinating work across a pool of independent workers.
 ---
