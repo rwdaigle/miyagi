@@ -1,2 +1,0 @@
-// Initial page load b/f Turbolinks kicks in
-$(function(){wireSubscribeForm()});var wireSubscribeForm=function(){var e=function(){return form=$("#top_search_form"),$.pjax({url:form.attr("action")+"?"+form.serialize(),container:"#results",timeout:2500}),!1}};
