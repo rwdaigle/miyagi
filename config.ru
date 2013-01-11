@@ -28,7 +28,7 @@ use Rack::ETag
 require 'rack/contrib/try_static'
 
 use Rack::TryStatic,
-    :root => "site",
+    :root => "build",
     :urls => %w[/],
     :try => ['.html', 'index.html', '/index.html']
 

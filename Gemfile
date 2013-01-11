@@ -12,12 +12,11 @@ gem "pygments.rb"
 gem "zazz"
 gem 'fontcustom'
 
-# Until we're on S3
+# Until we're on S3 (?)
 group :development, :production do
   gem 'rack-cache'
   gem 'rack-contrib'
   gem 'rack-rewrite'
   gem 'dalli'
-  gem 'newrelic_rpm'
   gem 'memcachier'
 end
