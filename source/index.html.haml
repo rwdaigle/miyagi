@@ -2,7 +2,7 @@
 
 %ol.content.articles
 
-  - for article in sitemap.resources.select { |r| r.path.start_with?('articles/') }
+  - for article in articles
     %li
       %article
         %h2= link_to(article.data['title'], article)
