@@ -15,3 +15,4 @@
 .sass-cache
 
 .env
+.rvmrc
