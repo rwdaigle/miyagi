@@ -20,18 +20,3 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     end
   end
 end
-
-# <?xml version="1.0" encoding="UTF-8"?>
-# <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
-#   <id>tag:www.miyagijournal.com,2012:/articles</id>
-#   <link rel="alternate" type="text/html" href="http://www.miyagijournal.com"/>
-#   <link rel="self" type="application/atom+xml" href="http://www.miyagijournal.com/articles.atom"/>
-#   <title>Miyagi - An open journal on the technique of modern application development.</title>
-#   <updated>2012-12-11T18:09:11Z</updated>
-#   <entry>
-#     <id>tag:www.miyagijournal.com,2012:Article/9</id>
-#     <published>2012-12-11T18:08:32Z</published>
-#     <updated>2012-12-11T18:08:32Z</updated>
-#     <link rel="alternate" type="text/html" href="http://www.miyagijournal.com/articles/9-the-tortoise-and-the-octocat"/>
-#     <title>The Tortoise and The Octocat</title>
-#     <content type="html">
