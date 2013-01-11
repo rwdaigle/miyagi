@@ -1,0 +1,11 @@
+%li
+  %span.name {{name}}
+  //%span.description {{description}}
+  
+  %ul.stats
+    %li
+      {{forks}}
+      %span.label Forks
+    %li
+      {{watchers}}
+      %span.label Watchers
