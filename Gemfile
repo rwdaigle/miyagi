@@ -6,6 +6,9 @@ gem "psych"
 gem "redcarpet"
 gem "builder"
 
+gem "rack-codehighlighter", :git => "git://github.com/wbzyl/rack-codehighlighter.git", :require => 'rack/codehighlighter'
+gem "pygments.rb"
+
 # Zeke's playground
 gem "zazz"
 gem 'fontcustom'
