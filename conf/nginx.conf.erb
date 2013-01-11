@@ -13,12 +13,12 @@ http {
   sendfile           on;
   keepalive_timeout  65;
 
-  index index.html;
-
   server {
 
     listen           <%= ENV['PORT'] %>;
     server_name      <%= ENV['HOST'] || 'localhost' %>;
+
+    try_files        $uri $uri/ /index.html;
 
     location / {
       root build;
