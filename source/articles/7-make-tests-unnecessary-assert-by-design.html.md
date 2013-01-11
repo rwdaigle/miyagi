@@ -16,11 +16,11 @@ Take SQL injection, for instance: When was the last time you wrote a test to mak
 
 Either way, the fact is that we just don't see any TDD enthusiast writing a SQL injection test before establishing a connection.
 
-"Well,” they say, "my framework provides the protection. I should not be testing third party code!”
+"Well," they say, "my framework provides the protection. I should not be testing third party code!"
 
 What about the authentication system, then? Should we write integration tests for every single endpoint in the application, making sure they are applying the right access control rules? What about audit traces, metrics logging, page caching?
 
-Nick Kallen says "[the biggest danger with Access Control rules is the possibility that a careless Programmer might forget to implement them](http://pivotallabs.com/users/nick/blog/articles/272-access-control-permissions-in-rails)”. Even with nice helpers, patterns for testing, and 100% coverage a careless programmer can still compromise your security, and there's nothing we can do about this.
+Nick Kallen says "[the biggest danger with Access Control rules is the possibility that a careless Programmer might forget to implement them](http://pivotallabs.com/users/nick/blog/articles/272-access-control-permissions-in-rails)". Even with nice helpers, patterns for testing, and 100% coverage a careless programmer can still compromise your security, and there's nothing we can do about this.
 
 Or is there?
 
