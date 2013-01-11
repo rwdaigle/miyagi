@@ -1,0 +1,218 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html>
+    <head>
+      <title>
+        Process Partitioning in Distributed Systems - Miyagi
+      </title>
+      <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+      <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+      <link href='/articles.atom' rel='alternate' title='Miyagi article feed' type='application/atom+xml' />
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="//use.typekit.net/xii6gcf.js"></script>
+      <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+      <script src="/javascripts/application.js" type="text/javascript"></script>
+      <script type='text/javascript'>
+        //<![CDATA[
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', '']);
+          _gaq.push(['_trackPageview']);
+          
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        //]]>
+      </script>
+      <script type='text/javascript'>
+        //<![CDATA[
+          $(function() {
+          
+            // HN
+            (function(d, t) {
+              var g = d.createElement(t),
+                  s = d.getElementsByTagName(t)[0];
+              g.src = '//hnbutton.appspot.com/static/hn.min.js';
+              s.parentNode.insertBefore(g, s);
+            }(document, 'script'));
+          
+            // Twitter
+            !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src="//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+              }
+            }(document,"script","twitter-wjs");
+          });
+        //]]>
+      </script>
+    </head>
+    <body>
+      <header class='compact'>
+        <div class='container'>
+          <a class='logo' href='/'>
+            <div class='icon'>&#xf101</div>
+            <div class='label'>
+              <h1>Miyagi</h1>
+              <h2>
+                <span class='is'>is</span>
+                A Heroku inspired journal of application development
+              </h2>
+            </div>
+          </a>
+        </div>
+        <div class='subscribe'>
+          <a href="https://twitter.com/MiyagiJournal" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @MiyagiJournal</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          <!-- - if !current_user.subscribed? -->
+          <!-- = form_tag(subscribe_users_path) do -->
+          <!-- = text_field_tag :email, "", :size => 30, :placeholder => "Miyagi, send me new articles" -->
+        </div>
+      </header>
+      <div class='main'>
+        <article>
+    <h1>Process Partitioning in Distributed Systems</h1>
+    <p class='date'>
+      Published
+      by
+      Ryan Smith
+      on
+      December 6, 2012
+    </p>
+    <div class='body'><h2>The problem</h2>
+  
+  <p>When working with large, high volume, low latency systems, it is often the case that processing data sequentially becomes detrimental to the system&#39;s health. If we only allow 1 process to work on our data we run into several challenges:</p>
+  
+  <ul>
+  <li>Our process may fall behind resulting in a situation which it is impossible for our process to catch up.</li>
+  <li>Our singleton process could crash and leave our system in a degraded state.</li>
+  <li>The average latency of data processing could be dramatically affected by outlying cases.</li>
+  </ul>
+  
+  <p>For these reasons, we wish to design a system which allows N number of processes to work on a single data set. In order to arrive at a possible solution, let me outline some assumptions of the system.</p>
+  
+  <ul>
+  <li>A data store exists, containing items to be processed.</li>
+  <li>The data store supports atomic updates or conditional puts.</li>
+  <li>The system runs on a horizontally scalable platform that contains homogenous environment variables.</li>
+  </ul>
+  
+  <h2>Solution</h2>
+  
+  <p>There are multiple approaches to processing data in parallel. By way of comparison let&#39;s compare process partitioning with queuing, the most common solution to data processing.</p>
+  
+  <h3>Queuing</h3>
+  
+  <p>Queuing decouples data-processing workers from other system components and is a broadly accepted solution to processing data in parallel. However, there are certain scenarios where process partitioning is a better solution.</p>
+  
+  <p>Consider the case when your dataset lends itself to partitioning - in that the data has keys which are broadly spread across a wide value range. A partitioning scheme for such data can be created with minimal effort and allows us to keep the data-processing close to the data model itself. Another data abstraction, that of a queue, isn&#39;t necessary in this case.</p>
+  
+  <p>Using queues also exposes you to the noisy-neighbor syndrome. If you have 25 jobs on the queue, all consisting of the same resource-intensive work, your queue could get bogged down while less intensive processing is blocked. Queues represent a false form of parallelism and are subject to such congestion.</p>
+  
+  <p>Queues may also not be appropriate when you have a high number of worker processes. Many workers accessing the same resource (the queue) can create a high contention rate. This threshold varies considerably considering the queue and langue being used, but be conscious of this limitation as your worker pool approaches 100 processes.</p>
+  
+  <p>In such cases process partitioning offers a less contentious way to access your data without requiring additional abstractions.</p>
+  
+  <h3>Process partitioning</h3>
+  
+  <p>Process partitioning approaches parallelism from a different angle. It creates logical shards of the dataset and assigns a single independent process to that subset of data. Since the data they access is unique to their process they&#39;re not contending for a single resource and can more predictably scale to large numbers of processors.</p>
+  
+  <p>You could achieve similar benefit by using N queues (one per processor). However, an additional queue needs to be provisioned every time you want to increase the worker pool and you&#39;re still left with an additional component to manage. In many cases process partitioning is an ideal solution.</p>
+  
+  <p>Our approach to process partitioning involves distributing the workload over N processors. Each processor will coordinate with a centralized data store to obtain an integer based identity. Thus each process will be identified by an integer from 0 to N. The processor will use it&#39;s identity to exclusively find work. We will assign each item of work an integer value and the processor will select the item of work if the item&#39;s value modulo N is equal to the processor&#39;s id. Let us explore the details of our approach.</p>
+  
+  <h2>Identity coordination</h2>
+  
+  <p>Each processor should have access to N -- which is the maximum number of processors. N can be an environment variable defined in each processor&#39;s memory. Upon initialization, each processor will successively choose a number from 0 to N until the processor can globally lock it&#39;s identity. To lock an identity, each processor must request a lock on the identity with a central data store. The following code snippet is an example of identity coordination in Ruby:</p>
+  <div class="highlight"><pre><span class="k">def</span> <span class="nf">acquire_lock</span>
+    <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;N&quot;</span><span class="o">].</span><span class="n">to_i</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="ss">Locksmith</span><span class="p">:</span><span class="ss">:Dynamodb</span><span class="o">.</span><span class="n">lock</span><span class="p">(</span><span class="s2">&quot;my-process-</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">do</span>
+        <span class="k">yield</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">#critical section</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  </pre></div>
+  <p>Tools such as <a href="https://github.com/ryandotsmith/lock-smith">lock-smith</a> and <a href="https://github.com/ryandotsmith/ddbsync">ddbsync</a> provide a convenient way to acquire a global lock as does native data store functionality such as Postgres&#39; <a href="http://www.postgresql.org/docs/9.1/static/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS">pg_advisory_lock</a> and MySQL&#39;s <a href="http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_get-lock">GET_LOCK</a>.</p>
+  
+  <h2>Work item selection</h2>
+  
+  <p>Selecting data for each processor to process will be determined by the data store containing the items to be processed. Data stores supporting predicate analysis (e.g. SQL) will allow the processor to submit a query for data based on our modulo predicate. Data stores like Dynamodb will require the processor to scan data into memory and apply the predicates locally. You should take your data&#39;s size into consideration when choosing the store for your items to be processed. Scanning the table into memory may not be feasible. An example of both approaches in Ruby:</p>
+  
+  <h4>SQL</h4>
+  <div class="highlight"><pre><span class="n">acquire_lock</span> <span class="k">do</span> <span class="o">|</span><span class="n">partition</span><span class="o">|</span>
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;select * from items_to_be_processed where MOD(id, ?) = ?&quot;</span>
+    <span class="no">DB</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="nb">Integer</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;N&quot;</span><span class="o">]</span><span class="p">),</span> <span class="n">partition</span><span class="p">)</span>
+  <span class="k">end</span>
+  </pre></div>
+  <h4>In-memory scan</h4>
+  <div class="highlight"><pre><span class="n">acquire_lock</span> <span class="k">do</span> <span class="o">|</span><span class="n">partition</span><span class="o">|</span>
+    <span class="no">DB</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+      <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="o">%</span> <span class="nb">Integer</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;N&quot;</span><span class="o">]</span><span class="p">)</span> <span class="o">==</span> <span class="n">partition</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  </pre></div>
+  <h4>Non-integer identities</h4>
+  
+  <p>One caveat with the previous examples... It may not always be possible to have an integer based identity on your items-to-be-processed. In these cases we can use the CRC-32 algorithm to produce an checksum of the bytes of data and use the checksum in our modulo computation.</p>
+  <div class="highlight"><pre><span class="n">acquire_lock</span> <span class="k">do</span> <span class="o">|</span><span class="n">partition</span><span class="o">|</span>
+    <span class="no">DB</span><span class="o">.</span><span class="n">scan</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+      <span class="no">Zlib</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">%</span> <span class="nb">Integer</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;N&quot;</span><span class="o">]</span><span class="p">)</span> <span class="o">==</span> <span class="n">partition</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  </pre></div>
+  <h2>Fault tolerance</h2>
+  
+  <p>In order to address the problem of maximizing the availability of our processors, we need only keep redundant processor online. If a processor should fail, it&#39;s lock will be released allowing a redundant processor to acquire the lock in the identity coordination phase. For critical systems, keeping 2*N processors should be sufficient.</p>
+  
+  <h2>Conclusion</h2>
+  
+  <p>Process partitioning provides a way to process great amounts of data in parallel. It offers a simple design that can be implemented in any language on a variety of data stores. This approach is a great alternative to commonly seen queue based approaches. In fact, there are many cases in which this approach provides a greater level of concurrency which will allow a more robust data processing system. The proof of the concurrency improvements will be an exercise left to the reader.</p></div>
+    <div class='author'>
+      <div class='name'>
+        "Process Partitioning in Distributed Systems" was written by <a href="http://ryandotsmith.heroku.com/">Ryan Smith</a>.
+        <br />
+        <!-- and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. -->
+      </div>
+      <!-- .links -->
+      <!-- %ul -->
+      <!-- %li.twitter= "@#{@article.author.twitter_username}" -->
+      <!-- %li.github= @article.author.gh_username -->
+      <!-- %li.site= link_to(@article.author.site_url) -->
+      <div class='profile'>
+        <p>Ryan builds distributed systems at <a href="http://heroku.com">Heroku</a>. His writing is motivated by many successes and failures experienced with production systems at Heroku.</p>
+      </div>
+    </div>
+    <!-- .license= render :partial => 'license' -->
+    <!-- %h3 Links mentioned in this article -->
+    <!-- %ul.link_summary -->
+    <!-- - for link in @article.links -->
+    <!-- %li -->
+    <!-- - if icon_words.include?(link.humanized_type) -->
+    <!-- = link_to(link.humanized_url, link.url, class: 'iconic', title: icon_for(link.humanized_type)) -->
+    <!-- - else -->
+    <!-- = link_to(link.humanized_url, link.url) -->
+    <!-- /%ul#repos -->
+  </article>
+      </div>
+      <footer>
+        <p>
+          Miyagi is a journal of high-quality, general-purpose technical content. Its contributors
+          are thoughtful practitioners of modern application development with a variety of interests.
+          Miyagi is available
+          <a href="https://twitter.com/MiyagiJournal">@MiyagiJournal</a>
+          and via a
+          <a href="/articles.atom">feed.</a>
+        </p>
+        <div id='yin_yang'>
+          <div class='container'>
+            <div class='side sun'>&#xf107</div>
+            <div class='side moon'>&#xf105</div>
+          </div>
+        </div>
+      </footer>
+    </body>
+  </html>
+  

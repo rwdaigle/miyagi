@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>
+      A Heroku inspired journal of application development - Miyagi
+    </title>
+    <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+    <link href='/articles.atom' rel='alternate' title='Miyagi article feed' type='application/atom+xml' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="//use.typekit.net/xii6gcf.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="/javascripts/application.js" type="text/javascript"></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(function() {
+        
+          // HN
+          (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = '//hnbutton.appspot.com/static/hn.min.js';
+            s.parentNode.insertBefore(g, s);
+          }(document, 'script'));
+        
+          // Twitter
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,"script","twitter-wjs");
+        });
+      //]]>
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class='container'>
+        <a class='logo' href='/'>
+          <div class='icon'>&#xf101</div>
+          <div class='label'>
+            <h1>Miyagi</h1>
+            <h2>
+              <span class='is'>is</span>
+              A Heroku inspired journal of application development
+            </h2>
+          </div>
+        </a>
+      </div>
+      
+    </header>
+    <div class='main'>
+      <ol class='content articles'>
+  <li>
+    <article>
+      <h2><a href="/articles/9-the-tortoise-and-the-octocat/">The Tortoise and The Octocat</a></h2>
+      <!-- %p.date= article.published_at.stamp("March 8, 2004") -->
+      <p class='summary'>Programmers are the legislators, the authors, the arbiters of our digital existence. And in a world where the digital is increasingly inseparable from physical, the implication is clear: our decisions in code today affect our world tomorrow.</p>
+    </article>
+  </li>
+  <li>
+    <article>
+      <h2><a href="/articles/8-process-partitioning-in-distributed-systems/">Process Partitioning in Distributed Systems</a></h2>
+      <!-- %p.date= article.published_at.stamp("March 8, 2004") -->
+      <p class='summary'>Assigning a group of worker processes to operate, in parallel, against a large dataset is a very efficient approach to data processing. Process partitioning is a scalable approach for coordinating work across a pool of independent workers.</p>
+    </article>
+  </li>
+  <li>
+    <article>
+      <h2><a href="/articles/7-make-tests-unnecessary-assert-by-design/">Make Tests Unnecessary: Assert by Design</a></h2>
+      <!-- %p.date= article.published_at.stamp("March 8, 2004") -->
+      <p class='summary'>Automated testing is a proven tool for verifying application behavior and preventing bugs and regressions. However, as a last-minute line of defense, testing can often be eschewed in favor of baking preventative behavior directly into the application design.</p>
+    </article>
+  </li>
+</ol>
+<!-- .side -->
+<!-- %h2 Recent authors -->
+<!-- %ol.authors -->
+<!-- - for author in User.authors.random.limit(4) -->
+<!-- %li -->
+<!-- .name= author.name -->
+<!-- .profile= raw(author.profile_html) -->
+    </div>
+    <footer>
+      <p>
+        Miyagi is a journal of high-quality, general-purpose technical content. Its contributors
+        are thoughtful practitioners of modern application development with a variety of interests.
+        Miyagi is available
+        <a href="https://twitter.com/MiyagiJournal">@MiyagiJournal</a>
+        and via a
+        <a href="/articles.atom">feed.</a>
+      </p>
+      <div id='yin_yang'>
+        <div class='container'>
+          <div class='side sun'>&#xf107</div>
+          <div class='side moon'>&#xf105</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
