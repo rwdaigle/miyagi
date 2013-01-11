@@ -6,9 +6,17 @@ gem "psych"
 gem "redcarpet"
 gem "builder"
 
-gem "rack-codehighlighter", :git => "git://github.com/wbzyl/rack-codehighlighter.git", :require => 'rack/codehighlighter'
 gem "pygments.rb"
 
 # Zeke's playground
 gem "zazz"
 gem 'fontcustom'
+
+# Until we're on S3
+group :development, :production do
+  gem 'rack-cache'
+  gem 'rack-contrib'
+  gem 'rack-rewrite'
+  gem 'dalli'
+  gem 'newrelic_rpm'
+end
