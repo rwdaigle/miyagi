@@ -33,29 +33,3 @@ use Rack::TryStatic,
     :try => ['.html', 'index.html', '/index.html']
 
 run lambda { [404, {'Content-Type' => 'text/html'}, ['Not Found']]}
-
-# use Rack::Rewrite do
-#   # rewrite '/', '/index.html'
-# end
-
-# # use Rack::Rewrite do
-# #   r307 %r{^([^\.]*[^\/])$}, '$1/' 
-# #   r307 %r{^(.*\/)$}, '$1index.html'
-# # end
-
-# run Rack::Directory.new('public')
-
-# # use Rack::Static, 
-# #   :urls => ["/images", "/javascripts", "/stylesheets", "/fonts", "/articles"],
-# #   :root => "public"
-
-# # run lambda { |env|
-# #   [
-# #     200, 
-# #     {
-# #       'Content-Type'  => 'text/html', 
-# #       'Cache-Control' => 'public, max-age=#{ttl}' 
-# #     },
-# #     File.open('public/index.html', File::RDONLY)
-# #   ]
-# # }
