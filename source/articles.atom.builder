@@ -11,7 +11,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     xml.entry do
       xml.title article.data['title']
       xml.link "rel" => "alternate", "href" => "http://miyagijournal.com/#{article.path}"
-      xml.id "http://miyagijournal.com#{article.path}"
+      xml.id "http://miyagijournal.com/#{article.path}"
       xml.published "#{Date.parse(article.data['date']).iso8601}T00:00:00-08:00"
       xml.updated "#{Date.parse(article.data['date']).iso8601}T00:00:00-08:00"
       xml.author { xml.name article.data['author']['name'] }
