@@ -21,6 +21,7 @@ activate :i18n
 activate :directory_indexes
 
 configure :build do
+  activate :asset_hash, :exts => ['.js', '.css', '.png', '.gif', '.jpg', '.woff']
   activate :minify_css
   activate :minify_javascript
   activate :gzip
