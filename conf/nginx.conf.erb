@@ -22,18 +22,23 @@ http {
 
     index            index.html;
     try_files        $uri $uri/ /index.html;
+    access_log       off;
 
     gzip_static      on;
     gzip_proxied     any;
     gzip_disable     "msie6";
 
+    add_header       Vary Accept-Encoding;
 
     location / {
       root           build;
       autoindex      off;
-      access_log     off;
       expires        modified +<%= ENV['DEFAULT_TTL'] || 3600 %>s;
-      add_header     Vary Accept-Encoding;
+
+      location ~*    (-[A-Za-z0-9]+)\.(css|js|gif|jpe?g|png|woff) {
+        expires max;
+        break;
+      }
     }
   }
 }
