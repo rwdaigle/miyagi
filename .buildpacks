@@ -1,0 +1,2 @@
+git://github.com/meskyanichi/heroku-buildpack-middleman.git
+git://github.com/essh/heroku-buildpack-nginx.git

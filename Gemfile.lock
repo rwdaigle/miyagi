@@ -14,7 +14,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    dalli (2.6.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.3.1)
@@ -33,7 +32,6 @@ GEM
     listen (0.5.3)
     maruku (0.6.1)
       syntax (>= 1.0.0)
-    memcachier (0.0.2)
     middleman (3.0.9)
       middleman-core (= 3.0.9)
       middleman-more (= 3.0.9)
@@ -80,13 +78,8 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
     rack (1.4.1)
-    rack-cache (1.2)
-      rack (>= 0.4)
-    rack-contrib (1.1.0)
-      rack (>= 0.9.1)
     rack-protection (1.3.2)
       rack
-    rack-rewrite (1.3.3)
     rack-test (0.6.2)
       rack (>= 1.0)
     rb-fsevent (0.9.3)
@@ -125,15 +118,10 @@ PLATFORMS
 
 DEPENDENCIES
   builder
-  dalli
   fontcustom
-  memcachier
   middleman (~> 3.0.7)
   psych
   pygments.rb
-  rack-cache
-  rack-contrib
-  rack-rewrite
   redcarpet
   tzinfo
   zazz

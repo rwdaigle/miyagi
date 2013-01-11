@@ -11,12 +11,3 @@ gem "pygments.rb"
 # Zeke's playground
 gem "zazz"
 gem 'fontcustom'
-
-# Until we're on S3 (?)
-group :development, :production do
-  gem 'rack-cache'
-  gem 'rack-contrib'
-  gem 'rack-rewrite'
-  gem 'dalli'
-  gem 'memcachier'
-end
