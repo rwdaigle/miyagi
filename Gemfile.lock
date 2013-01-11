@@ -32,6 +32,7 @@ GEM
     listen (0.5.3)
     maruku (0.6.1)
       syntax (>= 1.0.0)
+    memcachier (0.0.1)
     middleman (3.0.9)
       middleman-core (= 3.0.9)
       middleman-more (= 3.0.9)
@@ -126,6 +127,7 @@ DEPENDENCIES
   builder
   dalli
   fontcustom
+  memcachier
   middleman (~> 3.0.7)
   newrelic_rpm
   psych

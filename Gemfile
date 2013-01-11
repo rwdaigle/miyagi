@@ -19,4 +19,5 @@ group :development, :production do
   gem 'rack-rewrite'
   gem 'dalli'
   gem 'newrelic_rpm'
+  gem 'memcachier'
 end
