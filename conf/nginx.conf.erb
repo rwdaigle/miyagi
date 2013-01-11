@@ -13,11 +13,14 @@ http {
   sendfile           on;
   keepalive_timeout  65;
 
+  port_in_redirect   off;
+
   server {
 
     listen           <%= ENV['PORT'] %>;
     server_name      <%= ENV['HOST'] || 'localhost' %>;
 
+    index            index.html;
     try_files        $uri $uri/ /index.html;
 
     location / {
@@ -28,5 +31,4 @@ http {
       add_header Vary Accept-Encoding;
     }
   }
-
 }
