@@ -171,11 +171,11 @@
 
 &lt;p&gt;Either way, the fact is that we just don&amp;#39;t see any TDD enthusiast writing a SQL injection test before establishing a connection.&lt;/p&gt;
 
-&lt;p&gt;&amp;quot;Well,” they say, &amp;quot;my framework provides the protection. I should not be testing third party code!”&lt;/p&gt;
+&lt;p&gt;&amp;quot;Well,&amp;quot; they say, &amp;quot;my framework provides the protection. I should not be testing third party code!&amp;quot;&lt;/p&gt;
 
 &lt;p&gt;What about the authentication system, then? Should we write integration tests for every single endpoint in the application, making sure they are applying the right access control rules? What about audit traces, metrics logging, page caching?&lt;/p&gt;
 
-&lt;p&gt;Nick Kallen says &amp;quot;&lt;a href="http://pivotallabs.com/users/nick/blog/articles/272-access-control-permissions-in-rails"&gt;the biggest danger with Access Control rules is the possibility that a careless Programmer might forget to implement them&lt;/a&gt;”. Even with nice helpers, patterns for testing, and 100% coverage a careless programmer can still compromise your security, and there&amp;#39;s nothing we can do about this.&lt;/p&gt;
+&lt;p&gt;Nick Kallen says &amp;quot;&lt;a href="http://pivotallabs.com/users/nick/blog/articles/272-access-control-permissions-in-rails"&gt;the biggest danger with Access Control rules is the possibility that a careless Programmer might forget to implement them&lt;/a&gt;&amp;quot;. Even with nice helpers, patterns for testing, and 100% coverage a careless programmer can still compromise your security, and there&amp;#39;s nothing we can do about this.&lt;/p&gt;
 
 &lt;p&gt;Or is there?&lt;/p&gt;
 
