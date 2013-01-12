@@ -29,16 +29,19 @@ http {
     gzip_disable     "msie6";
 
     add_header       Vary Accept-Encoding;
+    add_header       Cache-Control public;
 
+    # Static assets
+    location ~* (-[A-Za-z0-9]+)\.(css|js|gif|jpe?g|png|woff) {
+      expires max;
+      break;
+    }
+
+    # Content
     location / {
       root           build;
       autoindex      off;
       expires        modified +<%= ENV['DEFAULT_TTL'] || 3600 %>s;
-
-      location ~*    (-[A-Za-z0-9]+)\.(css|js|gif|jpe?g|png|woff) {
-        expires max;
-        break;
-      }
     }
   }
 }
