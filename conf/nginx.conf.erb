@@ -7,8 +7,8 @@ events {
 
 http {
 
-  include       mime.types;
-  default_type  application/octet-stream;
+  include            mime.types;
+  default_type       application/octet-stream;
 
   sendfile           on;
   keepalive_timeout  65;
@@ -35,7 +35,7 @@ http {
     location / {
       root           build;
       autoindex      off;
-      expires        modified +<%= ENV['DEFAULT_TTL'] || 3600 %>s;
+      expires        <%= ENV['DEFAULT_TTL'] || 3600 %>s;
 
       # Static assets
       location ~* (-[A-Za-z0-9]+)\.(css|js|gif|jpe?g|png|woff) {
