@@ -17,6 +17,8 @@ Miyagi uses [Middleman](http://middlemanapp.com/), a Ruby-based static site gene
 3. `middleman`
 4. open `http://localhost:4567`
 
+Miyagi uses the livereload mechanism during development to automatically reload the site when a file changes. This makes writing in Markdown alongside the real-time rendered article a reality.
+
 ## Contributing
 
 We welcome contributors across disciplines - web dev, Ruby, Clojure, Go, Javascript, front-end, mobile etc... If you have an interest in promoting a particular technique, perspective or vision please get in touch with `rd at heroku.com`.

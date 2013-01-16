@@ -19,6 +19,7 @@ helpers ApplicationHelpers
 
 activate :i18n
 activate :directory_indexes
+activate :livereload
 
 configure :build do
   activate :asset_hash, :exts => ['.js', '.css', '.png', '.gif', '.jpg', '.woff']
