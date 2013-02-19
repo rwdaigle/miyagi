@@ -1,11 +1,12 @@
 ---
 title: "Make Tests Unnecessary: Assert by Design"
 date: December 5, 2012
-author:
-  name: Pedro Belo
-  site: http://pedro.herokuapp.com/
-  profile:
-    "Pedro is a proponent of shipping, improving and avoiding code. Current obsessions include: APIs, distributed architectures, zero downtime deploys and <a href=\"http://en.wikipedia.org/wiki/Caipirinha\">caipirinhas</a>."
+authors:
+  -
+    name: Pedro Belo
+    site: http://pedro.herokuapp.com/
+    profile:
+      "Pedro is a proponent of shipping, improving and avoiding code. Current obsessions include: APIs, distributed architectures, zero downtime deploys and <a href=\"http://en.wikipedia.org/wiki/Caipirinha\">caipirinhas</a>."
 summary:
   Automated testing is a proven tool for verifying application behavior and preventing bugs and regressions. However, as a last-minute line of defense, testing can often be eschewed in favor of baking preventative behavior directly into the application design.
 ---

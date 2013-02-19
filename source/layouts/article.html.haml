@@ -4,12 +4,13 @@
 
   %article
 
+    %a(href="#{current_page.data['authors'][0]['gplus']}?rel=author")
     %h1= current_page.data['title']
     
     %p.date
       Published 
       by 
-      = current_page.data['author']['name']
+      = current_page.data['authors'].collect { |a| a['name'] }.join(', ')
       on
       = current_page.data['date']
 
@@ -17,7 +18,8 @@
 
     .author
       .name
-        = "\"#{current_page.data['title']}\" was written by #{link_to(current_page.data['author']['name'], current_page.data['author']['site'])}."
+        = "\"#{current_page.data['title']}\" was written by"
+        = current_page.data['authors'].collect { |a| link_to(a['name'], a['site']) }.join(' and ')
         %br/
         / and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
       / .links
@@ -26,7 +28,8 @@
       /     %li.github= @article.author.gh_username
       /     %li.site= link_to(@article.author.site_url)
       .profile
-        %p= current_page.data['author']['profile']
+        - current_page.data['authors'].each do |author|
+          %p= author['profile']
 
     /.license= render :partial => 'license'
     

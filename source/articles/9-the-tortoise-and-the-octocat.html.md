@@ -1,11 +1,12 @@
 ---
 title: The Tortoise and The Octocat
 date: December 11, 2012
-author:
-  name: Mattt Thompson
-  site: http://mattt.me/
-  profile:
-    Mattt leads mobile development at Heroku, and waxes philosophical on matters of aesthetics, linguistics, & technique.
+authors:
+  -
+    name: Mattt Thompson
+    site: http://mattt.me/
+    profile:
+      Mattt leads mobile development at Heroku, and waxes philosophical on matters of aesthetics, linguistics, & technique.
 summary:
   "Programmers are the legislators, the authors, the arbiters of our digital existence. And in a world where the digital is increasingly inseparable from physical, the implication is clear: our decisions in code today affect our world tomorrow."
 ---
