@@ -23,7 +23,7 @@ Logs are a source of time-ordered events about everything happening with your ap
 
 Then we see that logs are far more than ephemeral output or a simple debugging aid. Logs are data that provide incredible operational and business visibility.
 
-## Instrumentation
+## The possibilities
 
 A well-structured, relevant, event stream lays the foundation for higher levels of abstraction, aggregation and visualization. Consider the following uses for your log data:
 
@@ -34,7 +34,7 @@ A well-structured, relevant, event stream lays the foundation for higher levels 
 
 In their default form, it's not likely that your application logs can power services such as these or give you meaningful insight. Here are 5 steps to change that.
 
-## Purposeful logs
+## Choose core set of events
 
 Logs are not excreted by your application. They are deliberately created by you, the developer, to provide insight. Don't obfuscate this channel by logging everything you can access. Instead, reduce your logs to their essence by sequestering log data along two axes: operational events and business events.
 
@@ -50,7 +50,7 @@ By way of example, a log management business like [Papertrail](https://papertrai
 
 Focus on your operational and business needs to identify a small set of metrics. From this initial dataset you can expose the metrics that are of unique value to you and your business.
 
-## Log configuration
+## Configure log output
 
 Application logs [should be streamed](http://12factor.net/logs), unbuffered, to `STDOUT` and not stored in files on the local system. These event streams, when piped to other services, can be collated across sources into a single, sequential system-wide view. Determine the necessary settings for your language, framework or library to output logs to `STDOUT`.
 
@@ -78,7 +78,7 @@ method=PUT path=/posts format=html controller=posts action=update status=302 dur
 
 Streaming single-line logs to `STDOUT` ensures a logical and unified view of your system’s events.
 
-## Human and machine readability
+## Use a structured format
 
 Historically, logs have been targeted for human eyes. But logs can serve more than one master. Log management software (see: [Fluentd](http://fluentd.org/) and [Scribe](https://github.com/facebook/scribe)) and services (see: [Papertrail](https://papertrailapp.com/) and [Splunk](http://www.splunk.com/view/splunk-storm/SP-CAAAG58)) receive log streams for higher order processing and analysis and can be attached to most modern platforms like [Heroku](https://devcenter.heroku.com/articles/logging#syslog-drains) or any infrastructure with access to [syslog-ng](http://www.balabit.com/network-security/syslog-ng/opensource-logging-system).
 
@@ -90,7 +90,7 @@ logger.info("measure=papertrail.queue.backlog val=" + queueBacklog);
 
 Target both humans and machines when creating your log statements with a simple, structured format. This ensures the logs' viability and longevity.
 
-## Log keys
+## Use consistent log keys
 
 [Naming is hard](http://martinfowler.com/bliki/TwoHardThings.html). This is true of many things, including log keys. Using name-spaced keys within a consistent key-set simplifies the instrumentation of logs and enables tools that consume these logs.
 
@@ -126,7 +126,7 @@ Using these conventions clearly identifies the primary measurement of each log s
 
 Logs using this convention can be piped to a service like [l2met](https://github.com/ryandotsmith/l2met) which will calculate a set of time-based functions on the data and send it to Librato for visualization.
 
-## Contextual data
+## Include contextual data
 
 This is not to say that log data is limited to this key-set. Related and relevant event information should be included to support querying, simple reporting and historical analysis.
 
