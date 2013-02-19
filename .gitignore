@@ -17,3 +17,6 @@ log
 
 .env
 .rvmrc
+
+*.sql
+*.dump
