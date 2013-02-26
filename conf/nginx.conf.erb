@@ -33,9 +33,11 @@ http {
 
     # Generated site at "build" root dir
     location / {
+
       root           build;
       autoindex      off;
       expires        <%= ENV['DEFAULT_TTL'] || 3600 %>s;
+      charset        utf-8;
 
       # Static assets
       location ~* (-[A-Za-z0-9]+)\.(css|js|gif|jpe?g|png|woff) {
