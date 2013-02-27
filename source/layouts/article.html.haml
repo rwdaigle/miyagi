@@ -6,33 +6,24 @@
 
     %a(href="#{current_page.data['authors'][0]['gplus']}?rel=author")
     %h1= current_page.data['title']
-    
+
     %p.date
-      Published 
-      by 
-      = current_page.data['authors'].collect { |a| a['name'] }.join(', ')
-      on
+      Published
       = current_page.data['date']
 
     .body= yield
 
-    .author
-      .name
-        = "\"#{current_page.data['title']}\" was written by"
-        = current_page.data['authors'].collect { |a| link_to(a['name'], a['site']) }.join(' and ')
-        %br/
-        / and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-      / .links
-      /   %ul
-      /     %li.twitter= "@#{@article.author.twitter_username}"
-      /     %li.github= @article.author.gh_username
-      /     %li.site= link_to(@article.author.site_url)
-      .profile
-        - current_page.data['authors'].each do |author|
-          %p= author['profile']
+    %ul.authors
+      - for author in current_page.data['authors']
+        %li
+          = gravatar_for(author.email)
+          %p
+            = link_to(author.name, author.site)
+            = author.profile
+
 
     /.license= render :partial => 'license'
-    
+
     / %h3 Links mentioned in this article
     / %ul.link_summary
     /   - for link in @article.links
@@ -41,7 +32,7 @@
     /         = link_to(link.humanized_url, link.url, class: 'iconic', title: icon_for(link.humanized_type))
     /       - else
     /         = link_to(link.humanized_url, link.url)
-            
+
     //%ul#repos
 
     #comments
