@@ -5,14 +5,16 @@ authors:
   -
     name: Ryan Daigle
     site: https://twitter.com/rwdaigle
+    email: rd@heroku.com
     gplus: https://plus.google.com/u/0/106431285901024293656
     profile:
-      Ryan works at Heroku where he attempts to expose progressive cultural and technology practices through journalism.
+      works at Heroku, where he attempts to expose progressive cultural and technology practices through journalism.
   -
     name: Troy Davis
     site: https://twitter.com/troyd
+    email: troy@sevenscale.com
     profile:
-      Troy is the founder of the hosted log management service, <a href="https://papertrailapp.com/">Papertrail</a>, and has seen the log usage of thousands of customers.
+      is the founder of the hosted log management service, <a href="https://papertrailapp.com/">Papertrail</a>, and has seen the log usage of thousands of customers.
 summary:
   "Logs are a source of time-ordered events about everything happening with your app. But their inconsistent verbosity and substance obscures the big-picture view. What if you could easily and automatically roll them up into daily charts, or run ad-hoc queries to look for correlations on user behavior?"
 ---
@@ -67,7 +69,7 @@ Completed in 0.01224 (81 reqs/sec) | DB: 0.00044 (3%) | 302 Found [http://localh
 Completed in 0.11224 (9 reqs/sec) | DB: 0.00021 (1%) | 302 Found [http://localhost/posts]
 ```
 
-From this unified output it's impossible to know what data belongs to which request. When logical log statements aren't contained in a single line their atomicity can't be guaranteed. 
+From this unified output it's impossible to know what data belongs to which request. When logical log statements aren't contained in a single line their atomicity can't be guaranteed.
 
 Condense the default log output for your framework by adjusting the logger configuration or using a library like Rails' [lograge](https://github.com/roidrage/lograge):
 
@@ -97,29 +99,33 @@ Target both humans and machines when creating your log statements with a simple,
 Consider the following core keys for your log data:
 
 <table>
+  <thead>
   <tr>
     <th>Key</th>
     <th>Meaning</th>
     <th>Example</th>
   </tr>
-  <tr>
-    <td><code>measure</code></td>
-    <td>the name-spaced label of the data-point</td>
-    <td>
-      <code>measure=app.session-controller.login</code>
-      <code>measure=app.queue.backlog</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>val</code></td>
-    <td>the optional data-point value (omit for single occurrence counts)</td>
-    <td><code>val=1.23</code></td>
-  </tr>
-  <tr>
-    <td><code>units</code></td>
-    <td>optional units if <code>val</code> is ambiguous</td>
-    <td><code>units=ms</code></td>
-  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>measure</code></td>
+      <td>the name-spaced label of the data-point</td>
+      <td>
+        <code>measure=app.session-controller.login</code>
+        <code>measure=app.queue.backlog</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>val</code></td>
+      <td>the optional data-point value (omit for single occurrence counts)</td>
+      <td><code>val=1.23</code></td>
+    </tr>
+    <tr>
+      <td><code>units</code></td>
+      <td>optional units if <code>val</code> is ambiguous</td>
+      <td><code>units=ms</code></td>
+    </tr>
+  </tbody>
 </table>
 
 Using these conventions clearly identifies the primary measurement of each log statement and establishes a known key-set that other tools can interrogate.
