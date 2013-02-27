@@ -99,29 +99,33 @@ Target both humans and machines when creating your log statements with a simple,
 Consider the following core keys for your log data:
 
 <table>
+  <thead>
   <tr>
     <th>Key</th>
     <th>Meaning</th>
     <th>Example</th>
   </tr>
-  <tr>
-    <td><code>measure</code></td>
-    <td>the name-spaced label of the data-point</td>
-    <td>
-      <code>measure=app.session-controller.login</code>
-      <code>measure=app.queue.backlog</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>val</code></td>
-    <td>the optional data-point value (omit for single occurrence counts)</td>
-    <td><code>val=1.23</code></td>
-  </tr>
-  <tr>
-    <td><code>units</code></td>
-    <td>optional units if <code>val</code> is ambiguous</td>
-    <td><code>units=ms</code></td>
-  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>measure</code></td>
+      <td>the name-spaced label of the data-point</td>
+      <td>
+        <code>measure=app.session-controller.login</code>
+        <code>measure=app.queue.backlog</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>val</code></td>
+      <td>the optional data-point value (omit for single occurrence counts)</td>
+      <td><code>val=1.23</code></td>
+    </tr>
+    <tr>
+      <td><code>units</code></td>
+      <td>optional units if <code>val</code> is ambiguous</td>
+      <td><code>units=ms</code></td>
+    </tr>
+  </tbody>
 </table>
 
 Using these conventions clearly identifies the primary measurement of each log statement and establishes a known key-set that other tools can interrogate.

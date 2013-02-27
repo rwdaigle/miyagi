@@ -52,11 +52,11 @@ a
 p
   +normal_font_size
   margin: 0
-  padding: 10px 0
+  padding: 5px 0
 
-// pygments Overrides
+// pygments overrides
 .highlight
-  background-color: $background_color !important
+  background-color: $code_background_color !important
   +border-radius(5px)
   padding: 5px 10px
   pre
@@ -64,6 +64,8 @@ p
     padding: 0
     margin: 0
     font-size: 14px
+  body.night &
+    background-color: $night_code_background_color !important
 
 .subscribe
   position: fixed
@@ -77,6 +79,8 @@ p
     outline: $fun_color
     max-width: 200px
     height: 10px
+  +mobile-only
+    display: none
 
   p
     +small_font_size
