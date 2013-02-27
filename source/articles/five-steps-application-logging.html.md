@@ -1,5 +1,5 @@
 ---
-title: 5 Steps to Better Application Logging
+title: 5 Steps to Useful Application Logging
 date: February 19, 2013
 authors:
   -
