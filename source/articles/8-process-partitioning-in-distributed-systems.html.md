@@ -5,8 +5,9 @@ authors:
   -
     name: Ryan Smith
     site: http://ryandotsmith.heroku.com/
+    email: ryan@heroku.com
     profile:
-      Ryan builds distributed systems at <a href="http://heroku.com">Heroku</a>. His writing is motivated by many successes and failures experienced with production systems at Heroku.
+      builds distributed systems at <a href="http://heroku.com">Heroku</a>. His writing is motivated by many successes and failures experienced with production systems at Heroku.
 summary:
   Assigning a group of worker processes to operate, in parallel, against a large dataset is a very efficient approach to data processing. Process partitioning is a scalable approach for coordinating work across a pool of independent workers.
 ---

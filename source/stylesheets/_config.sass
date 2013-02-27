@@ -1,6 +1,7 @@
 // Day Colors
 $sun_color: #F05A28
 $background_color: #FFFFFF
+$code_background_color: #F0F0F0
 $box_color: rgba(#000, 0.05)
 $heading_color: rgba(#000, 1)
 $text_color: rgba(#000, 0.8)
@@ -11,6 +12,7 @@ $link_color: $fun_color
 // Night Colors
 $moon_color: #FDF496
 $night_background_color: rgba(#000, 0.9)
+$night_code_background_color: rgba(#000, 0.9)
 $night_heading_color: rgba(#D3CDB6, 1)
 $night_text_color: rgba(#7F7B6C, 1)
 $night_foreground_color: rgba(#FFF, 1)
@@ -18,7 +20,7 @@ $night_fun_color: #CF3900
 $night_link_color: $night_fun_color
 
 // Config
-$content_width: 600px
+$content_width: 640px
 
 =tranny
   +transition(all 0.3s)
@@ -28,3 +30,8 @@ $content_width: 600px
   padding-left: 10px
   padding-right: 10px
   +box-sizing(border-box)
+
+=reset_list
+  margin: 0
+  padding: 0
+  list-style: none
