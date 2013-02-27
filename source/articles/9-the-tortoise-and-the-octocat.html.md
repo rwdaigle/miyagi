@@ -5,8 +5,9 @@ authors:
   -
     name: Mattt Thompson
     site: http://mattt.me/
+    email: mattt@heroku.com
     profile:
-      Mattt leads mobile development at Heroku, and waxes philosophical on matters of aesthetics, linguistics, & technique.
+      leads mobile development at Heroku, and waxes philosophical on matters of aesthetics, linguistics, & technique.
 summary:
   "Programmers are the legislators, the authors, the arbiters of our digital existence. And in a world where the digital is increasingly inseparable from physical, the implication is clear: our decisions in code today affect our world tomorrow."
 ---
@@ -27,7 +28,7 @@ Working with Subversion was slow, stressful, and frustrating. An Internet connec
 
 As a result of these small annoyances, teams using SVN often cultivated a culture of fear, intimidation, and isolation. Code became more difficult to write, which had a stifling effect on open source participation. Imagine the thousands of useful features went unwritten because of the cognitive and logistical overhead of collaboration with Subversion.
 
-On the other hand, Git sparked a so-called "social coding" revolution. [GitHub](https://github.com) has transcended its utility of code storage to become the de facto social network for software developers. And as a result, the open source world has never been more connected. 
+On the other hand, Git sparked a so-called "social coding" revolution. [GitHub](https://github.com) has transcended its utility of code storage to become the de facto social network for software developers. And as a result, the open source world has never been more connected.
 
 Git succeeded in a way that Subversion never could, and it has everything to do with its architecture.
 

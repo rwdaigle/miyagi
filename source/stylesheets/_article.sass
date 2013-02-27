@@ -7,6 +7,7 @@ ol.articles
 
 article
   padding: 20px 0
+  position: relative
 
   p
     &.date
@@ -16,12 +17,65 @@ article
       margin: 0
       body.night &
         color: rgba($night_text_color, 0.4)
-    
-  .author
-    margin-top: 75px
-    padding: 10px
-    background-color: $box_color
-    +border-radius(5px)    
+
+  .body
+    ul
+      list-style-position: outside
+      margin: 0
+      padding: 0 0 0 20px
+      li
+        padding: 5px 0
+
+    img
+      margin: 20px 0
+
+    table
+      margin: 10px 0
+      thead
+        tr
+          th
+            text-align: left
+      tbody
+        tr
+          td
+            border-top: 1px solid #DDD
+            padding: 5px 10px 5px 0
+            vertical-align: top
+
+  ul.authors
+    +reset_list
+    margin: 30px 0
+    > li
+      position: relative
+      min-height: 80px
+      margin: 0 0 15px 0
+      img.gravatar
+        +border_radius(50%)
+        position: absolute
+        width: 70px
+        height: 70px
+      p
+        margin: 0
+        padding: 14px 0 0 84px
+        a
+          color: $text_color
+          text-decoration: underline
+          body.night &
+            color: $night_text_color
+    &.floaty
+      position: fixed
+      width: 160px
+      top: 50px
+      left: 50px
+      z-index: 20
+      > li
+        img.gravatar
+          width: 120px
+          height: 120px
+          margin-bottom: 15px
+          position: auto
+        p
+          text-align: center
 
   .discuss
     margin: 35px 0px 35px 0px
