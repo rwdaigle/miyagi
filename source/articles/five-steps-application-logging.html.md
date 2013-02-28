@@ -1,6 +1,6 @@
 ---
 title: 5 Steps to Better Application Logging
-date: February 19, 2013
+date: February 28, 2013
 authors:
   -
     name: Ryan Daigle
