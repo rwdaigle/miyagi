@@ -1,5 +1,5 @@
 ---
-title: 5 Steps to Useful Application Logging
+title: 5 Steps to Better Application Logging
 date: February 19, 2013
 authors:
   -
@@ -80,7 +80,7 @@ method=PUT path=/posts format=html controller=posts action=update status=302 dur
 
 Streaming single-line logs to `STDOUT` ensures a logical and unified view of your system’s events.
 
-## Use a structured format
+## Format as key-value tokens
 
 Historically, logs have been targeted for human eyes. But logs can serve more than one master. Log management software (see: [Fluentd](http://fluentd.org/) and [Scribe](https://github.com/facebook/scribe)) and services (see: [Papertrail](https://papertrailapp.com/) and [Splunk](http://www.splunk.com/view/splunk-storm/SP-CAAAG58)) receive log streams for higher order processing and analysis and can be attached to most modern platforms like [Heroku](https://devcenter.heroku.com/articles/logging#syslog-drains) or any infrastructure with access to [syslog-ng](http://www.balabit.com/network-security/syslog-ng/opensource-logging-system).
 
